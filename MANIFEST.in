@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include panoptic *.css
+recursive-include panoptic *.csv
+recursive-include panoptic *.html
+recursive-include panoptic *.ico
+recursive-include panoptic *.js
+recursive-include panoptic *.json
+recursive-include panoptic *.md
+recursive-include panoptic *.png
+recursive-include panoptic *.py
+recursive-include panoptic *.svg
+recursive-include panoptic *.txt
+recursive-exclude panoptic *.pyc
