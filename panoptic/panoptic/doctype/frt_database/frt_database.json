@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "autoname": "field:database_name",
+ "creation": "2020-10-01 20:47:16.010727",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "database_name",
+  "aggregator_name",
+  "aggregator_type",
+  "db_details_section",
+  "prescribed_standard",
+  "storage_status",
+  "legal_basis",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "label": "Database Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "aggregator_name",
+   "fieldtype": "Data",
+   "label": "Aggregator Name"
+  },
+  {
+   "fieldname": "aggregator_type",
+   "fieldtype": "Select",
+   "label": "Aggregator Type",
+   "options": "Public\nPrivate"
+  },
+  {
+   "fieldname": "db_details_section",
+   "fieldtype": "Section Break",
+   "label": "DB Details"
+  },
+  {
+   "fieldname": "prescribed_standard",
+   "fieldtype": "Data",
+   "label": "Prescribed Standard"
+  },
+  {
+   "fieldname": "storage_status",
+   "fieldtype": "Select",
+   "label": "Storage Status",
+   "options": "Permanent\nTemporary"
+  },
+  {
+   "fieldname": "legal_basis",
+   "fieldtype": "Data",
+   "label": "Legal Basis"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-10-01 20:47:16.010727",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "FRT Database",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

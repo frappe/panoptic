@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "autoname": "format:FRT-{######}",
+ "creation": "2020-10-01 20:33:42.416225",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "authority",
+  "purpose",
+  "column_break_3",
+  "verification_status",
+  "implementation_section",
+  "location",
+  "city",
+  "state",
+  "details_section",
+  "status",
+  "technology_provider",
+  "tender_publish_date",
+  "last_reported_use",
+  "section_break_13",
+  "linked",
+  "legal_foundations_section",
+  "legal_basis",
+  "rti_section",
+  "rti_status",
+  "rti_number",
+  "rti_response",
+  "section_break_20",
+  "rti_file_date",
+  "rti_response_date",
+  "links_section",
+  "links",
+  "section_break_27",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "authority",
+   "fieldtype": "Link",
+   "label": "Authority",
+   "options": "Authority"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Implementation Status",
+   "options": "\nTender Floated\nTender Accepted\nProcurement Started\nImplementation Started\nImplementation Complete\nIn Utilization\nEnd of Life"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "label": "Purpose",
+   "options": "\nSecurity/Surveillance\nAuthentication of Identity"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "details_section",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tender_publish_date",
+   "fieldtype": "Date",
+   "label": "Tender Publishing"
+  },
+  {
+   "fieldname": "last_reported_use",
+   "fieldtype": "Date",
+   "label": "Date of Reported Use"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Verification Status",
+   "options": "Submitted\nVerified"
+  },
+  {
+   "fieldname": "linked",
+   "fieldtype": "Table",
+   "label": "Linked Databases",
+   "options": "FRT Linked Database"
+  },
+  {
+   "fieldname": "rti_section",
+   "fieldtype": "Section Break",
+   "label": "RTI"
+  },
+  {
+   "fieldname": "rti_number",
+   "fieldtype": "Data",
+   "label": "RTI Number"
+  },
+  {
+   "fieldname": "rti_file_date",
+   "fieldtype": "Date",
+   "label": "RTI Filed On"
+  },
+  {
+   "fieldname": "rti_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "RTI Status",
+   "options": "To be Filed\nFiled\nRecieved"
+  },
+  {
+   "fieldname": "rti_response",
+   "fieldtype": "Attach",
+   "label": "RTI Response"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rti_response_date",
+   "fieldtype": "Date",
+   "label": "RTI Response Received On"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "implementation_section",
+   "fieldtype": "Section Break",
+   "label": "Implementation"
+  },
+  {
+   "fieldname": "technology_provider",
+   "fieldtype": "Link",
+   "label": "Technology Provider",
+   "options": "FRT Technology Provider"
+  },
+  {
+   "fieldname": "legal_foundations_section",
+   "fieldtype": "Section Break",
+   "label": "Legal Foundations"
+  },
+  {
+   "fieldname": "legal_basis",
+   "fieldtype": "Table",
+   "label": "Legal Basis",
+   "options": "Legal Basis"
+  },
+  {
+   "fieldname": "links_section",
+   "fieldtype": "Section Break",
+   "label": "Links"
+  },
+  {
+   "fieldname": "links",
+   "fieldtype": "Table",
+   "label": "Links",
+   "options": "FRT Link"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-10-02 10:34:06.333561",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "FRT",
+ "name_case": "UPPER CASE",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "authority",
+ "track_changes": 1
+}

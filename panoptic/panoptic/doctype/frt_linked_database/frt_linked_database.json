@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "creation": "2020-10-01 20:47:51.073655",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "linked_database",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "linked_database",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Linked Database",
+   "options": "FRT Database",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nLinked",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-10-01 20:52:33.007663",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "FRT Linked Database",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

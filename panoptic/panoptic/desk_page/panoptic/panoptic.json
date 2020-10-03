@@ -1,0 +1,59 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "FRT",
+   "links": "[\n    {\n        \"label\": \"FRT\",\n        \"name\": \"FRT\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Authority\",\n        \"name\": \"Authority\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Links",
+   "links": "[\n    {\n        \"label\": \"FRT Database\",\n        \"name\": \"FRT Database\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"FRT Technology Provider\",\n        \"name\": \"FRT Technology Provider\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Legal Case\",\n        \"name\": \"FRT Technology Provider\",\n        \"type\": \"doctype\"\n    }\n]\n    "
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-10-01 21:16:59.407661",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 1,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Panoptic",
+ "modified": "2020-10-01 21:21:17.665056",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "Panoptic",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "FRT",
+   "link_to": "FRT",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Authority",
+   "link_to": "Authority",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "FRT Database",
+   "link_to": "FRT Database",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "FRT Technology Provider",
+   "link_to": "FRT Technology Provider",
+   "type": "DocType"
+  }
+ ]
+}
