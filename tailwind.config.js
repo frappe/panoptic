@@ -3,7 +3,14 @@ module.exports = {
 		removeDeprecatedGapUtilities: true,
 		purgeLayersByDefault: true,
 	},
-	purge: [],
+	purge: {
+		mode: 'all',
+		enabled: process.env.FRAPPE_ENV === 'production',
+		content: [
+			'./panoptic/templates/**/*.html',
+			'./panoptic/www/**/*.html'
+		],
+	},
 	theme: {
 		typography: {
 			default: {
