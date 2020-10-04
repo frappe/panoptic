@@ -4,12 +4,12 @@
 
 {% block body %}
 <section class="container border-b border-collapse">
-	<div class="flex">
-		<div class="w-3/5 border-r border-l">
-			<div class="flex justify-between items-center h-12 border-b">
-				<h2 class="px-5">Interactive Map</h2>
+	<div class="flex flex-wrap">
+		<div class="w-full md:w-3/5 md:border-r border-l">
+			<div class="flex justify-between items-center border-b">
+				<h2 class="p-5 text-xl md:text-2xl border-r">Interactive Map</h2>
 				<a href="/states"
-					class="border-l px-8 h-full flex items-center text-orange-500 font-bold hover:bg-teal-blue-600">
+					class=" px-8 h-full flex items-center text-orange-500 font-bold hover:bg-teal-blue-600">
 					View States List
 				</a>
 			</div>
@@ -17,8 +17,8 @@
 				<img style="max-height: 600px;" src="/assets/panoptic/images/demo-map.svg">
 			</div>
 		</div>
-		<div class="w-2/5 border-r flex flex-col justify-between">
-			<div class="p-12 px-24">
+		<div class="w-full md:w-2/5 border-r flex flex-col justify-between">
+			<div class="p-8 md:p-12 md:px-24">
 				<h1>India</h1>
 				<div class="flex justify-between mt-6">
 					<p>Total number of FRTs installed:</p>
@@ -33,7 +33,7 @@
 					<p class="font-bold">{{ total_authorities }}</p>
 				</div>
 			</div>
-			<div class="py-12 px-24 bg-panoptic-blue-500 border-t">
+			<div class="p-8 md:py-12 md:px-24 bg-panoptic-blue-500 border-t">
 				<h1 class="text-white">
 					Facial Recognition Systems Tracker
 				</h1>
@@ -50,11 +50,12 @@
 	</div>
 </section>
 <section class="container bg-panoptic-blue-500 border-l border-r border-b">
-	<div class="max-w-4xl flex mx-auto py-12">
-		<div class="w-1/3 pr-12">
-			<h1 class="text-5xl text-orange-500">What is facial recognition?</h1>
+	<div class="max-w-4xl flex flex-wrap mx-auto p-8 md:py-12">
+		<div class="w-full md:w-1/3 pr-12">
+			<h1 class="text-4xl leading-tight md:leading-snug md:text-5xl text-orange-500">What is facial recognition?
+			</h1>
 		</div>
-		<div class="w-2/3 prose prose-md text-white">
+		<div class="w-full md:w-2/3 prose prose-md text-white mt-5 md:mt-0">
 			<p>
 				Face recognition is a method of identifying or verifying the identity of an individual using their face.
 				Face recognition systems can be used to identify people in photos, video, or in real-time. Face
