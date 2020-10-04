@@ -2,17 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.nav-link {
+		@apply w-full px-3 py-2 rounded items-center justify-center;
+	}
+
+	.nav-link:hover {
+		@apply text-orange-500;
+	}
+
+	.nav-link.active {
+		@apply text-aqua-blue-500;
+	}
+
+	@screen lg {
+		.nav-link {
+			@apply inline-flex w-auto;
+		}
+	}
+}
+
 @layer base {
 	html {
 		@apply text-white;
-		font-family: Work Sans;
+		font-family: "Titillium Web", sans-serif;
+	}
+
+	nav {
+		font-family: "Work Sans", sans-serif;
 	}
 
 	h1 {
-		@apply text-2xl;
+		@apply text-4xl font-bold;
 	}
 
 	h2 {
-		@apply text-xl;
+		@apply text-2xl font-bold;
+	}
+
+	h3 {
+		@apply text-xl font-bold;
 	}
 }
