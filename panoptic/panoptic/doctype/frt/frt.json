@@ -11,9 +11,9 @@
   "column_break_3",
   "verification_status",
   "implementation_section",
-  "location",
-  "city",
   "state",
+  "district",
+  "city",
   "details_section",
   "status",
   "technology_provider",
@@ -43,16 +43,12 @@
    "options": "Authority"
   },
   {
-   "fieldname": "location",
-   "fieldtype": "Data",
-   "label": "Location"
-  },
-  {
    "fieldname": "state",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "State"
+   "label": "State",
+   "options": "State"
   },
   {
    "fieldname": "city",
@@ -187,11 +183,17 @@
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-02 10:34:06.333561",
+ "modified": "2020-10-05 18:35:04.334544",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",

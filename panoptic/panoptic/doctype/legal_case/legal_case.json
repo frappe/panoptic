@@ -9,7 +9,8 @@
   "title",
   "year",
   "description",
-  "transcription"
+  "transcription",
+  "court"
  ],
  "fields": [
   {
@@ -32,10 +33,15 @@
    "fieldname": "year",
    "fieldtype": "Data",
    "label": "Year"
+  },
+  {
+   "fieldname": "court",
+   "fieldtype": "Data",
+   "label": "Court"
   }
  ],
  "links": [],
- "modified": "2020-10-01 21:10:52.735314",
+ "modified": "2020-10-04 19:27:33.809995",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Legal Case",
