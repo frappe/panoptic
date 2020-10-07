@@ -28,6 +28,7 @@ module.exports = {
 		extend: {},
 		borderColor: theme => ({
 			default: '#60D6D7',
+			// default: '#153A4E',
 			orange: '#CB5B27',
 		}),
 		container: {
