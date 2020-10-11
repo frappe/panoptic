@@ -2,7 +2,10 @@
 
 {% block title %}Panoptic - FRT Tracker{% endblock %}
 
-{% block head_includes %}
+{% block script %}
+<script>
+	window.state_wise_frt = {{ state_wise_frt }};
+</script>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/geodata/data/countries2.js"></script>
