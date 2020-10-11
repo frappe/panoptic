@@ -8,7 +8,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "state_name"
+  "state_name",
+  "state_id"
  ],
  "fields": [
   {
@@ -16,6 +17,11 @@
    "fieldtype": "Data",
    "label": "State Name",
    "unique": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Data",
+   "label": "State ID"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -31,7 +37,7 @@
    "link_fieldname": "state"
   }
  ],
- "modified": "2020-10-05 18:44:53.179163",
+ "modified": "2020-10-11 15:31:07.347401",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "State",
