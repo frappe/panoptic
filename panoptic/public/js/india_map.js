@@ -42,10 +42,10 @@ window.onload = function () {
 	chart.geodataSource.events.on("parseended", function (ev) {
 		var data = [];
 		for (var i = 0; i < ev.target.data.features.length; i++) {
-			console.log(ev)
+			let id = ev.target.data.features[i].id;
 			data.push({
-				id: ev.target.data.features[i].id,
-				value: Math.round(Math.random() * 10000)
+				id: id,
+				value: window.state_wise_frt[id] || 0
 			})
 		}
 		polygonSeries.data = data;
@@ -53,6 +53,9 @@ window.onload = function () {
 
 	// Set projection
 	chart.projection = new am4maps.projections.Mercator();
+	chart.maxZoomLevel = 1;
+	chart.seriesContainer.draggable = false;
+	chart.seriesContainer.resizable = false;
 
 	// Create map polygon series
 	var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
@@ -61,11 +64,10 @@ window.onload = function () {
 	polygonSeries.heatRules.push({
 		property: "fill",
 		target: polygonSeries.mapPolygons.template,
-		min: chart.colors.getIndex(15).brighten(1),
+		min: chart.colors.getIndex(15).brighten(0.5),
 		max: chart.colors.getIndex(15).brighten(-0.3)
 	});
 
-	console.log(chart.colors)
 	// Make map load polygon data (state shapes and names) from GeoJSON
 	polygonSeries.useGeodata = true;
 
@@ -77,5 +79,5 @@ window.onload = function () {
 
 	// Create hover state and set alternative fill color
 	var hs = polygonTemplate.states.create("hover");
-	hs.properties.fill = chart.colors.getIndex(1).brighten(-0.5);
+	hs.properties.fill = 'white';
 };
