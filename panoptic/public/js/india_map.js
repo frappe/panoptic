@@ -64,8 +64,10 @@ window.onload = function () {
 	polygonSeries.heatRules.push({
 		property: "fill",
 		target: polygonSeries.mapPolygons.template,
-		min: chart.colors.getIndex(15).brighten(0.5),
-		max: chart.colors.getIndex(15).brighten(-0.3)
+		// min: chart.colors.getIndex(15).brighten(0.5),
+		// max: chart.colors.getIndex(15).brighten(-0.3)
+		min: am4core.color('#174057'),
+		max: am4core.color('#2B6061')
 	});
 
 	// Make map load polygon data (state shapes and names) from GeoJSON
@@ -76,6 +78,7 @@ window.onload = function () {
 	polygonTemplate.tooltipText = "{name}: {value} FRT Systems";
 	polygonTemplate.nonScalingStroke = true;
 	polygonTemplate.strokeWidth = 0.3;
+	// polygonTemplate.stroke = am4core.color("#153A4E");
 
 	// Create hover state and set alternative fill color
 	var hs = polygonTemplate.states.create("hover");
