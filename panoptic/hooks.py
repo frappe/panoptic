@@ -11,6 +11,11 @@ app_color = "grey"
 app_email = "panoptic@internetfreedom.in"
 app_license = "MIT"
 
+# application home page (will override Website Settings)
+home_page = "index"
+
+base_template = "templates/panoptic_base.html"
+
 # Includes in <head>
 # ------------------
 
@@ -38,11 +43,6 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-# Home Pages
-# ----------
-
-# application home page (will override Website Settings)
-home_page = "index"
 
 # website user home page (by Role)
 # role_home_page = {

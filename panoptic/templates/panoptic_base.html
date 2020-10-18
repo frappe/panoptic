@@ -90,7 +90,9 @@
 	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown"
 	{% endif -%}>
 	{% include "templates/includes/navbar.html" %}
-	{% block body %}{% endblock %}
+	{% block content %}
+		{{ content }}
+	{% endblock %}
 	{% include "templates/includes/footer.html" %}
 	</div>
 	<!-- csrf_token -->

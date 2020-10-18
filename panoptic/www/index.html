@@ -5,6 +5,7 @@
 {% block script %}
 <script>
 	window.state_wise_frt = {{ state_wise_frt }};
+	window.state_routes = {{ state_routes }};
 </script>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
@@ -14,7 +15,7 @@
 <script src="/assets/panoptic/js/india_map.js"></script>
 {% endblock %}
 
-{% block body %}
+{% block content %}
 <section class="container border-b border-collapse">
 	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
 		<h1 class="p-5">India</h1>
