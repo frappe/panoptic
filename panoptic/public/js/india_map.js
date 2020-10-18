@@ -16,31 +16,14 @@ am4core.useTheme(am4themes_animated);
 // Themes end
 
 window.onload = function () {
-	geo = { "country_code": "IN", "country_name": "India" }
-
-	// Default map
-	var defaultMap = "usaAlbersLow";
-
-	// calculate which map to be used
-	var currentMap = defaultMap;
-	var title = "";
-	if (am4geodata_data_countries2[geo.country_code] !== undefined) {
-		currentMap = am4geodata_data_countries2[geo.country_code]["maps"][0];
-
-		// add country title
-		if (am4geodata_data_countries2[geo.country_code]["country"]) {
-			title = am4geodata_data_countries2[geo.country_code]["country"];
-		}
-
-	}
-
-	// Create map instance
-	var chart = am4core.create("chartdiv", am4maps.MapChart);
+	let chart = am4core.create("chartdiv", am4maps.MapChart);
+	window.chart = chart;
 
 	// Set map definition
-	chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/" + currentMap + ".json";
+	chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/india2020High.json";
 	chart.geodataSource.events.on("parseended", function (ev) {
 		var data = [];
+
 		for (var i = 0; i < ev.target.data.features.length; i++) {
 			let id = ev.target.data.features[i].id;
 			data.push({
@@ -55,7 +38,10 @@ window.onload = function () {
 	chart.projection = new am4maps.projections.Mercator();
 	chart.maxZoomLevel = 1;
 	chart.seriesContainer.draggable = false;
+	chart.seriesContainer.wheelable = false;
 	chart.seriesContainer.resizable = false;
+	chart.seriesContainer.events.disableType("doublehit");
+	chart.chartContainer.background.events.disableType("doublehit");
 
 	// Create map polygon series
 	var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
@@ -78,9 +64,21 @@ window.onload = function () {
 	polygonTemplate.tooltipText = "{name}: {value} FRT Systems";
 	polygonTemplate.nonScalingStroke = true;
 	polygonTemplate.strokeWidth = 0.3;
+	polygonTemplate.events.on("hit", function(ev) {
+		let id = ev.target.dataItem.dataContext.id
+		window.location = window.state_routes[id];
+	});
 	// polygonTemplate.stroke = am4core.color("#153A4E");
 
 	// Create hover state and set alternative fill color
 	var hs = polygonTemplate.states.create("hover");
 	hs.properties.fill = 'white';
+
+	setTimeout(() => {
+		if (current_state) {
+			chart.maxZoomLevel = 32;
+			chart.zoomToMapObject(polygonSeries.getPolygonById(current_state));
+			chart.maxZoomLevel = 1;
+		}
+	}, 1800)
 };
