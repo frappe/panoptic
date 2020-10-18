@@ -1,0 +1,91 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block script %}
+<script>
+	window.state_wise_frt = {{ state_wise_frt }};
+	window.state_routes = {{ state_routes }};
+	window.current_state = "{{ state_id or '' }}" ;
+</script>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/geodata/data/countries2.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="/assets/panoptic/js/india_map.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
+		<h1 class="p-5">Facial Recognition Systems in <span class="text-orange-500">{{ doc.state_name }}</span></h1>
+		<button
+			class="w-full md:w-1/3 block h-100 px-8 items-center text-orange-500 font-bold hover:bg-teal-blue-600 border-l">
+			View States List
+		</button>
+	</div>
+	<div class="flex flex-wrap">
+		<div class="w-full md:w-2/3 md:border-r border-l">
+			<div id="chartdiv" class="h-full block p-12"></div>
+			<!-- <img style="max-height: 600px;" src="/assets/panoptic/images/demo-map.svg"> -->
+		</div>
+		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
+			<div>
+				<div class="px-8 py-4 border-b">
+					<p class="text-5xl font-bold text-orange-500">{{ total_frt }}</p>
+					<p>FRT Systems Installed</p>
+				</div>
+				<div class="px-8 py-4 border-b">
+					<p class="text-5xl font-bold text-orange-500">{{ total_frt_in_use }}</p>
+					<p>In Active Utilization</p>
+				</div>
+				<div class="px-8 py-4">
+					<p class="text-5xl font-bold text-orange-500">{{ frappe.utils.fmt_money(total_cost, 0, "INR") }}</p>
+					<p>Financial Outlay</p>
+				</div>
+			</div>
+			<div class="px-8 py-4 bg-panoptic-blue-500 border-t">
+				<h2 class="text-white">
+					Facial Recognition Systems Tracker
+				</h2>
+				<p class="mt-3">
+					Browse through our breathing database of all the FRT systems installed in India by different
+					authorities.
+				</p>
+				<div class="flex my-4 pr-12 flex items-center">
+					Hover over the states to dig deeper.
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="container bg-panoptic-blue-500 border-l border-r border-b">
+	<div class="max-w-4xl flex flex-wrap mx-auto p-8 md:py-12">
+		<div class="w-full md:w-1/3 pr-12">
+			<h1 class="text-4xl leading-tight md:leading-snug md:text-5xl text-orange-500">What is facial recognition?
+			</h1>
+		</div>
+		<div class="w-full md:w-2/3 prose prose-md text-white mt-5 md:mt-0">
+			<p>
+				Face recognition is a method of identifying or verifying the identity of an individual using their face.
+				Face recognition systems can be used to identify people in photos, video, or in real-time. Face
+				recognition systems use computer algorithms to pick out specific, distinctive details about a person’s
+				face. These details, such as distance between the eyes or shape of the chin, are then converted into a
+				mathematical representation and compared to data on other faces collected in a face recognition
+				database. The data about a particular face is often called a face template and is distinct from a
+				photograph because it’s designed to only include certain details that can be used to distinguish one
+				face from another.
+			</p>
+			<p>
+				Some face recognition systems, instead of positively identifying an unknown person, are designed to
+				calculate a probability match score between the unknown person and specific face templates stored in the
+				database. These systems will offer up several potential matches, ranked in order of likelihood of
+				correct identification, instead of just returning a single result.
+			</p>
+			<p>
+				Source: <a
+					href="https://www.eff.org/pages/face-recognition">https://www.eff.org/pages/face-recognition</a>
+			</p>
+		</div>
+	</div>
+</section>
+{% endblock %}
