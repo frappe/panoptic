@@ -32,6 +32,8 @@
   "rti_response_date",
   "links_section",
   "links",
+  "financial_outlay_section",
+  "amount_spent",
   "section_break_27",
   "notes"
  ],
@@ -189,11 +191,22 @@
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
+  },
+  {
+   "fieldname": "financial_outlay_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Outlay"
+  },
+  {
+   "fieldname": "amount_spent",
+   "fieldtype": "Currency",
+   "label": "Amount Spent",
+   "options": "INR"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-05 18:35:04.334544",
+ "modified": "2020-10-16 18:50:59.884613",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",

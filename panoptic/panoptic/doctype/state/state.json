@@ -1,15 +1,16 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:state_name",
  "creation": "2020-10-05 18:10:45.091896",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "state_name",
-  "state_id"
+  "state_id",
+  "route"
  ],
  "fields": [
   {
@@ -22,8 +23,14 @@
    "fieldname": "state_id",
    "fieldtype": "Data",
    "label": "State ID"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
   }
  ],
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [
   {
@@ -37,7 +44,7 @@
    "link_fieldname": "state"
   }
  ],
- "modified": "2020-10-11 15:31:07.347401",
+ "modified": "2020-10-16 18:49:52.136123",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "State",
