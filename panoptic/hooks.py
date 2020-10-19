@@ -14,7 +14,7 @@ app_license = "MIT"
 # application home page (will override Website Settings)
 home_page = "index"
 
-base_template = "templates/panoptic_base.html"
+# base_template = "templates/panoptic_base.html"
 
 # Includes in <head>
 # ------------------
