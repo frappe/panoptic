@@ -1,0 +1,71 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block script %}
+<script>
+	window.state_wise_frt = {{ state_wise_frt }};
+	window.state_routes = {{ state_routes }};
+	window.current_state = "{{ state_id or '' }}" ;
+</script>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/geodata/data/countries2.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="/assets/panoptic/js/india_map.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
+		<h1 class="p-5"><span class="text-orange-500">{{ doc.authority }}: {{ doc.name }}</span></h1>
+		<button
+			class="w-full md:w-1/3 block h-100 px-8 items-center text-orange-500 font-bold hover:bg-teal-blue-600 border-l">
+			View States List
+		</button>
+	</div>
+	<div class="flex flex-wrap">
+		<div class="w-full md:w-2/3 md:border-r border-l p-8">
+			<div class="mb-3">
+				<span class="mr-4">Place:</span>
+				<b>{{ doc.district_name }}</b>
+			</div>
+			<div class="mb-3">
+				<span class="mr-4">Purpose:</span>
+				<b>{{ doc.purpose }}</b>
+			</div>
+			<div class="mb-3">
+				<span class="mr-4">Technology Partner:</span>
+				<b>{{ doc.technology_provider or "Not Available" }}</b>
+			</div>
+			<div class="mb-3">
+				<span class="mr-4">Date of Tender Publishing:</span>
+				<b>{{ doc.tender_publish_date or "Not Available" }}</b>
+			</div>
+			<div class="mb-3">
+				<span class="mr-4">Status:</span>
+				<b>{{ doc.status }}</b>
+			</div>
+		</div>
+		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
+			<div>
+				<div class="px-8 py-4 border-b">
+					<p class="text-5xl font-bold text-orange-500">{{ doc.linked|length }}</p>
+					<p>FRT Systems Installed</p>
+				</div>
+				<div class="px-8 py-4 border-b">
+					<p class="text-5xl font-bold text-orange-500">{{ doc.linked|length }}</p>
+					<p>In Active Utilization</p>
+				</div>
+				<div class="px-8 py-4">
+					{% if amount_spent %}
+						<p class="text-5xl font-bold text-orange-500">{{ frappe.utils.fmt_money(amount_spent, 0, "INR") }}</p>
+					{% else %}
+						<p class="text-5xl font-bold text-orange-500">Not Available</p>
+					{% endif %}
+					<p>Financial Outlay</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
