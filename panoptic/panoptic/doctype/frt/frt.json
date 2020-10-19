@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "autoname": "format:FRT-{######}",
  "creation": "2020-10-01 20:33:42.416225",
  "doctype": "DocType",
@@ -8,11 +9,14 @@
  "field_order": [
   "authority",
   "purpose",
-  "column_break_3",
   "verification_status",
+  "column_break_3",
+  "route",
+  "published",
   "implementation_section",
   "state",
   "district",
+  "district_name",
   "city",
   "details_section",
   "status",
@@ -202,11 +206,31 @@
    "fieldtype": "Currency",
    "label": "Amount Spent",
    "options": "INR"
+  },
+  {
+   "fetch_from": "district.district_name",
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "label": "District Name"
+  },
+  {
+   "depends_on": "eval:doc.published",
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
   }
  ],
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-16 18:50:59.884613",
+ "modified": "2020-10-19 11:27:16.254002",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",
