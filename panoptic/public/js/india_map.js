@@ -51,9 +51,9 @@ window.onload = function () {
 		property: "fill",
 		target: polygonSeries.mapPolygons.template,
 		// min: chart.colors.getIndex(15).brighten(0.5),
-		// max: chart.colors.getIndex(15).brighten(-0.3)
 		min: am4core.color('#174057'),
-		max: am4core.color('#2B6061')
+		max: am4core.color('#883D1A')
+		// max: am4core.color('#2B6061')
 	});
 
 	// Make map load polygon data (state shapes and names) from GeoJSON
@@ -63,22 +63,23 @@ window.onload = function () {
 	var polygonTemplate = polygonSeries.mapPolygons.template;
 	polygonTemplate.tooltipText = "{name}: {value} FRT Systems";
 	polygonTemplate.nonScalingStroke = true;
-	polygonTemplate.strokeWidth = 0.3;
+	polygonTemplate.strokeWidth = 1;
 	polygonTemplate.events.on("hit", function(ev) {
 		let id = ev.target.dataItem.dataContext.id
 		window.location = window.state_routes[id];
 	});
-	// polygonTemplate.stroke = am4core.color("#153A4E");
+	polygonTemplate.stroke = am4core.color("#E2652B");
 
 	// Create hover state and set alternative fill color
 	var hs = polygonTemplate.states.create("hover");
 	hs.properties.fill = 'white';
 
 	setTimeout(() => {
+		console.log(polygonSeries.getPolygonById(current_state));
 		if (current_state) {
 			chart.maxZoomLevel = 32;
 			chart.zoomToMapObject(polygonSeries.getPolygonById(current_state));
-			chart.maxZoomLevel = 1;
+			// chart.maxZoomLevel = 1;
 		}
-	}, 1800)
+	}, 2000)
 };
