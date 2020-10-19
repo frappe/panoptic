@@ -16,7 +16,7 @@ class State(WebsiteGenerator):
 	)
 
 	def get_context(self, context):
-		context.frts = frappe.get_all("FRT", filters={ "state": self.name }, limit=20)
+		context.frts = frappe.get_all("FRT", fields=["name", "authority", "district_name", "technology_provider", "route"], filters={ "state": self.name }, limit=20)
 		context.total_frt = frappe.db.count("FRT", {"state": self.name}) or 0
 		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, "status": "In Utilization"}) or 0
 		context.total_cost = sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name }, pluck="amount_spent"))
