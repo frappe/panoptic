@@ -1,9 +1,9 @@
 <nav class="items-center bg-teal-blue-500 flex-wrap border container">
 	<div class="flex">
-		<div class="inline-flex items-center border-r py-5 px-5 md:px-8">
+		<a href="/" class="inline-flex items-center border-r py-5 px-5 md:px-8">
 			<img class="mr-0 md:mr-8 h-5 md:h-12" src="/assets/panoptic/images/panoptic.svg">
 			<div class="hidden md:block">Project<br>Panoptic</div>
-		</div>
+		</a>
 		<button
 			class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
 			data-target="#navigation">
@@ -11,7 +11,7 @@
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 			</svg>
 		</button>
-		<div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto text-orange-600 font-medium"
+		<div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto text-orange-500 font-medium"
 			id="navigation">
 			<div
 				class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
@@ -37,9 +37,6 @@
 		</div>
 	</div>
 </nav>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
-	integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function () {
 		$(".nav-toggler").each(function (_, navToggler) {
@@ -51,5 +48,4 @@
 			});
 		});
 	});
-
 </script>
