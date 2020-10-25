@@ -29,6 +29,7 @@ window.onload = function () {
 			data.push({
 				id: id,
 				value: window.state_wise_frt[id] || 0
+				// value: Math.floor(Math.random() * 40 )
 			})
 		}
 		polygonSeries.data = data;
@@ -64,7 +65,7 @@ window.onload = function () {
 	polygonTemplate.tooltipText = "{name}: {value} FRT Systems";
 	polygonTemplate.nonScalingStroke = true;
 	polygonTemplate.strokeWidth = 1;
-	polygonTemplate.events.on("hit", function(ev) {
+	polygonTemplate.events.on("hit", function (ev) {
 		let id = ev.target.dataItem.dataContext.id
 		window.location = window.state_routes[id];
 	});
@@ -79,7 +80,9 @@ window.onload = function () {
 		if (current_state) {
 			chart.maxZoomLevel = 32;
 			chart.zoomToMapObject(polygonSeries.getPolygonById(current_state));
-			// chart.maxZoomLevel = 1;
+			chart.seriesContainer.draggable = false;
+			chart.seriesContainer.wheelable = false;
+			chart.seriesContainer.resizable = false;
 		}
 	}, 2000)
 };

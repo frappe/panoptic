@@ -23,17 +23,12 @@
   "technology_provider",
   "tender_publish_date",
   "last_reported_use",
+  "storage_duration",
   "section_break_13",
   "linked",
   "legal_foundations_section",
   "legal_basis",
-  "rti_section",
-  "rti_status",
-  "rti_number",
-  "rti_response",
-  "section_break_20",
-  "rti_file_date",
-  "rti_response_date",
+  "rti",
   "links_section",
   "links",
   "financial_outlay_section",
@@ -106,42 +101,6 @@
    "fieldtype": "Table",
    "label": "Linked Databases",
    "options": "FRT Linked Database"
-  },
-  {
-   "fieldname": "rti_section",
-   "fieldtype": "Section Break",
-   "label": "RTI"
-  },
-  {
-   "fieldname": "rti_number",
-   "fieldtype": "Data",
-   "label": "RTI Number"
-  },
-  {
-   "fieldname": "rti_file_date",
-   "fieldtype": "Date",
-   "label": "RTI Filed On"
-  },
-  {
-   "fieldname": "rti_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "RTI Status",
-   "options": "To be Filed\nFiled\nRecieved"
-  },
-  {
-   "fieldname": "rti_response",
-   "fieldtype": "Attach",
-   "label": "RTI Response"
-  },
-  {
-   "fieldname": "section_break_20",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "rti_response_date",
-   "fieldtype": "Date",
-   "label": "RTI Response Received On"
   },
   {
    "fieldname": "section_break_13",
@@ -225,12 +184,24 @@
    "fieldname": "published",
    "fieldtype": "Check",
    "label": "Published"
+  },
+  {
+   "fieldname": "storage_duration",
+   "fieldtype": "Select",
+   "label": "Storage Duration",
+   "options": "Temporary\nPermanent"
+  },
+  {
+   "fieldname": "rti",
+   "fieldtype": "Table",
+   "label": "RTI",
+   "options": "FRT RTI"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-19 11:27:16.254002",
+ "modified": "2020-10-25 16:10:04.328407",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",

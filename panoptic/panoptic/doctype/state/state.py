@@ -16,7 +16,8 @@ class State(WebsiteGenerator):
 	)
 
 	def get_context(self, context):
-		context.frts = frappe.get_all("FRT", fields=["name", "authority", "district_name", "technology_provider", "route"], filters={ "state": self.name }, limit=20)
+		context.frts = self.get_all_frts(filters={ "state": self.name })
+
 		context.total_frt = frappe.db.count("FRT", {"state": self.name}) or 0
 		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, "status": "In Utilization"}) or 0
 		context.total_cost = sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name }, pluck="amount_spent"))
@@ -24,11 +25,22 @@ class State(WebsiteGenerator):
 		context.state_wise_frt = get_state_wise_frt()
 		context.state_routes = get_state_route_map()
 
+	def get_all_frts(self, filters={}, fields=None):
+		if not fields:
+			fields = ["name", "authority", "district_name", "technology_provider", "route"]
+
+		filters.update({
+			"published": 1
+		})
+
+		return frappe.get_all("FRT", fields=fields, filters=filters, limit=30)
+
+
 def get_state_route_map():
 	states = frappe.get_all("State", fields={"state_id", "route"})
 	return {d.state_id:d.route for d in states}
 
-def get_state_wise_frt():
+def get_state_wise_frt(cache=True):
 	data = frappe.db.sql("""
 		SELECT
 			`st`.`state_id`,

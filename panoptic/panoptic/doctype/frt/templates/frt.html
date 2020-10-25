@@ -1,71 +1,95 @@
 {% extends "templates/panoptic_base.html" %}
 
-{% block script %}
-<script>
-	window.state_wise_frt = {{ state_wise_frt }};
-	window.state_routes = {{ state_routes }};
-	window.current_state = "{{ state_id or '' }}" ;
-</script>
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/geodata/data/countries2.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="/assets/panoptic/js/india_map.js"></script>
-{% endblock %}
-
 {% block content %}
-<section class="container border-b border-collapse">
-	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
-		<h1 class="p-5"><span class="text-orange-500">{{ doc.authority }}: {{ doc.name }}</span></h1>
-		<button
-			class="w-full md:w-1/3 block h-100 px-8 items-center text-orange-500 font-bold hover:bg-teal-blue-600 border-l">
-			View States List
-		</button>
-	</div>
-	<div class="flex flex-wrap">
-		<div class="w-full md:w-2/3 md:border-r border-l p-8">
-			<div class="mb-3">
-				<span class="mr-4">Place:</span>
-				<b>{{ doc.district_name }}</b>
-			</div>
-			<div class="mb-3">
-				<span class="mr-4">Purpose:</span>
-				<b>{{ doc.purpose }}</b>
-			</div>
-			<div class="mb-3">
-				<span class="mr-4">Technology Partner:</span>
-				<b>{{ doc.technology_provider or "Not Available" }}</b>
-			</div>
-			<div class="mb-3">
-				<span class="mr-4">Date of Tender Publishing:</span>
-				<b>{{ doc.tender_publish_date or "Not Available" }}</b>
-			</div>
-			<div class="mb-3">
-				<span class="mr-4">Status:</span>
-				<b>{{ doc.status }}</b>
-			</div>
-		</div>
-		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
-			<div>
-				<div class="px-8 py-4 border-b">
-					<p class="text-5xl font-bold text-orange-500">{{ doc.linked|length }}</p>
-					<p>FRT Systems Installed</p>
+<section class="container bg-panoptic-blue-500 border-l border-r border-b p-8 md:p-12">
+	<h1>{{ doc.authority }}</h1>
+	<p>{{ doc.name }}</p>
+	<div class="flex flex-wrap mx-auto">
+		<div class="w-full md:w-1/3 pr-12 mt-8">
+			<h3 class="text-orange-500">Overview</h3>
+			<div class="mt-4">
+				<div class="mb-2">
+					Place: <b>{{ doc.district_name }}</b>
 				</div>
-				<div class="px-8 py-4 border-b">
-					<p class="text-5xl font-bold text-orange-500">{{ doc.linked|length }}</p>
-					<p>In Active Utilization</p>
+				<div class="mb-2">
+					Purpose: <b>{{ doc.purpose }}</b>
 				</div>
-				<div class="px-8 py-4">
-					{% if amount_spent %}
-						<p class="text-5xl font-bold text-orange-500">{{ frappe.utils.fmt_money(amount_spent, 0, "INR") }}</p>
-					{% else %}
-						<p class="text-5xl font-bold text-orange-500">Not Available</p>
-					{% endif %}
-					<p>Financial Outlay</p>
+				<div class="mb-2">
+					Technology Partner: <b>{{ doc.technology_provider or "Not Available" }}</b>
+				</div>
+				<div class="mb-2">
+					Date of Tender Publishing: <b>{{ doc.tender_publish_date or "Not Available" }}</b>
+				</div>
+				<div class="mb-2">
+					Date of Reported Use: <b>{{ doc.reported_use_date or "Not Available" }}</b>
+				</div>
+				<div class="mb-2">
+					Status: <b>{{ doc.status }}</b>
+				</div>
+				<div class="mb-2">
+					Storage Duration: <b>{{ doc.storage_duration }}</b>
 				</div>
 			</div>
 		</div>
+		<div class="w-full md:w-1/3 pr-12">
+			<div class="mt-8">
+				<h3 class="text-orange-500">Right to Information</h3>
+				<div class="mt-4">
+					{% for application in doc.rti %}
+					<div class="mb-2">
+						{{ application.rti }}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="mt-8">
+				<h3 class="text-orange-500">Legal Foundations</h3>
+				<div class="mt-4">
+					{% for case in doc.legal_basis %}
+					<div class="mb-2">
+						{{ case.title }}, {{ case.year }}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="w-full md:w-1/3 pr-12">
+			<div class="mt-8">
+				<h3 class="text-orange-500">Linked Database</h3>
+				<div class="mt-4">
+					{% for db in doc.linked %}
+					<div class="mb-2">
+						{{ db.linked_database }}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="mt-8">
+				<h3 class="text-orange-500">Important Links</h3>
+				<div class="mt-4">
+					{% for link in doc.links %}
+					<a class="underline" href="{{ link.link }}" class="mb-2">{{ link.title }}</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
 	</div>
+	</div>
+</section>
+<section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
+	<div class="bg-panoptic-blue-500 border-b w-full px-8 py-5 flex justify-between">
+		<div class="font-bold">Other FRTs around {{ doc.district_name }}</div>
+		<a href="/{{ state_route }}" class="text-aqua-blue-500">View All in {{ doc.state }}</a>
+	</div>
+	{% for frt in frts[:3] %}
+	<a href="/{{ frt.route }}" class="w-full md:w-1/3 p-8 border-r border-b hover:bg-teal-blue-600">
+		<h2>{{ frt.authority }}</h2>
+		<div class="mt-3 mb-8">
+			<p>{{ frt.technology_provider }}</p>
+			<p>{{ frt.district_name }}</p>
+			<p>ID: {{ frt.name }}</p>
+		</div>
+	</a>
+	{% endfor %}
 </section>
 {% endblock %}

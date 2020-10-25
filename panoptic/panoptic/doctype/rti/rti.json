@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "autoname": "format:RTI-{#####}",
+ "creation": "2020-10-25 16:03:05.078381",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rti_filed_by",
+  "authority",
+  "column_break_2",
+  "status",
+  "rti_number",
+  "filed_on",
+  "section_break_4",
+  "application_body",
+  "application_attachment",
+  "section_break_9",
+  "response_recieved_on",
+  "response_attachment"
+ ],
+ "fields": [
+  {
+   "fieldname": "rti_filed_by",
+   "fieldtype": "Link",
+   "label": "RTI Filed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "authority",
+   "fieldtype": "Link",
+   "label": "RTI Filed To",
+   "options": "Authority"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "application_body",
+   "fieldtype": "Text Editor",
+   "label": "Application Body"
+  },
+  {
+   "fieldname": "application_attachment",
+   "fieldtype": "Attach",
+   "label": "Application Attachment"
+  },
+  {
+   "fieldname": "filed_on",
+   "fieldtype": "Date",
+   "label": "Filed On"
+  },
+  {
+   "fieldname": "rti_number",
+   "fieldtype": "Data",
+   "label": "RTI Number"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Response Received\"",
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "response_recieved_on",
+   "fieldtype": "Date",
+   "label": "Response Recieved On"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "RTI Status",
+   "options": "Draft\nSubmitted\nAwaiting Response\nResponse Received"
+  },
+  {
+   "fieldname": "response_attachment",
+   "fieldtype": "Attach",
+   "label": "Attach Response"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-10-25 16:08:27.999502",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "RTI",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

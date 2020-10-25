@@ -4,7 +4,7 @@
 <script>
 	window.state_wise_frt = {{ state_wise_frt }};
 	window.state_routes = {{ state_routes }};
-	window.current_state = "{{ state_id or '' }}" ;
+	window.current_state = "{{ state_id or '' }}";
 </script>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
@@ -25,7 +25,7 @@
 	</div>
 	<div class="flex flex-wrap">
 		<div class="w-full md:w-2/3 md:border-r border-l">
-			<div id="chartdiv" class="h-full block p-12"></div>
+			<div id="chartdiv" class="h-full block"></div>
 			<!-- <img style="max-height: 600px;" src="/assets/panoptic/images/demo-map.svg"> -->
 		</div>
 		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
@@ -63,15 +63,14 @@
 		List of FRTS installed in the state:
 	</div>
 	{% for frt in frts %}
-		<div class="w-full md:w-1/3 p-8 border-r border-b">
-			<h2>{{ frt.authority }}</h2>
-			<div class="mt-3 mb-8">
-				<p>{{ frt.technology_provider }}</p>
-				<p>{{ frt.district_name }}</p>
-				<p>ID: {{ frt.name }}</p>
-			</div>
-			<a class="font-bold" href="{{ frt.route }}">Know More</a>
+	<a href="{{ frt.route }}" class="w-full md:w-1/3 lg:w-1/4 p-8 border-r border-b hover:bg-teal-blue-600">
+		<h2>{{ frt.authority }}</h2>
+		<div class="mt-3 mb-8">
+			<p>{{ frt.technology_provider }}</p>
+			<p>{{ frt.district_name }}</p>
+			<p>ID: {{ frt.name }}</p>
 		</div>
+	</a>
 	{% endfor %}
 </section>
 {% endblock %}
