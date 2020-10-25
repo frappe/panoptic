@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "format:DISTRICT-{#######}",
+ "autoname": "format:DISTRICT-{#####}",
  "creation": "2020-10-05 18:19:50.163647",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -35,7 +35,7 @@
    "link_fieldname": "district"
   }
  ],
- "modified": "2020-10-05 18:44:07.752953",
+ "modified": "2020-10-25 16:35:36.585015",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "District",
