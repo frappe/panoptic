@@ -15,6 +15,9 @@ class State(WebsiteGenerator):
 		sitemap=1
 	)
 
+	def autoname(self):
+		self.name = self.state_name
+
 	def get_context(self, context):
 		context.frts = self.get_all_frts(filters={ "state": self.name })
 

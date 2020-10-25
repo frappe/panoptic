@@ -3,6 +3,7 @@
  "allow_guest_to_view": 1,
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:state_name",
  "creation": "2020-10-05 18:10:45.091896",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -44,7 +45,7 @@
    "link_fieldname": "state"
   }
  ],
- "modified": "2020-10-16 18:49:52.136123",
+ "modified": "2020-10-25 16:56:42.952075",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "State",
