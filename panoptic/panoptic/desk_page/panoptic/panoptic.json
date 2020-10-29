@@ -8,7 +8,12 @@
   {
    "hidden": 0,
    "label": "Links",
-   "links": "[\n    {\n        \"label\": \"FRT Database\",\n        \"name\": \"FRT Database\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"FRT Technology Provider\",\n        \"name\": \"FRT Technology Provider\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Legal Case\",\n        \"name\": \"FRT Technology Provider\",\n        \"type\": \"doctype\"\n    }\n]\n    "
+   "links": "[\n    {\n        \"label\": \"FRT Database\",\n        \"name\": \"FRT Database\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"FRT Technology Provider\",\n        \"name\": \"FRT Technology Provider\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Legal Case\",\n        \"name\": \"Legal Case\",\n        \"type\": \"doctype\"\n    }\n]\n    "
+  },
+  {
+   "hidden": 0,
+   "label": "Geo",
+   "links": "[\n    {\n        \"label\": \"State\",\n        \"name\": \"State\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"District\",\n        \"name\": \"District\",\n        \"type\": \"doctype\"\n    }\n]\n    "
   }
  ],
  "category": "Modules",
@@ -23,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-10-01 21:21:17.665056",
+ "modified": "2020-10-30 00:16:06.873773",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",

@@ -1,0 +1,23 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Case Studies{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
+		<h1 class="p-5">Case Studies</h1>
+	</div>
+	<div class="flex flex-wrap border-r border-l">
+		{% for case in case_studies %}
+		<a href="/{{ case.route }}" class="p-12 border-b">
+			<div class="md:w-2/3">
+				<h2 class="text-orange-500">{{ case.title }}</h2>
+				<span class="mt-2 text-teal-blue-300">Published on {{ frappe.format_date(case.published_date) }}, by
+					{{ case.published_by }}</span>
+				<p class="mt-4">{{ case.description }}</p>
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}

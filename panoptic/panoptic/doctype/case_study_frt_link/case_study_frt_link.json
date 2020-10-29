@@ -1,0 +1,33 @@
+{
+ "actions": [],
+ "creation": "2020-10-30 00:21:23.053660",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "frt"
+ ],
+ "fields": [
+  {
+   "fieldname": "frt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "FRT",
+   "options": "FRT",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-10-30 00:21:23.053660",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "Case Study FRT Link",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

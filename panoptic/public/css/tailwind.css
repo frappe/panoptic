@@ -25,7 +25,7 @@
 @layer base {
 	html {
 		@apply text-white;
-		font-family: "Titillium Web", sans-serif;
+		font-family: "Work Sans", sans-serif;
 	}
 
 	nav {
