@@ -28,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-10-30 00:16:06.873773",
+ "modified": "2020-10-30 10:56:36.954779",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",
@@ -58,6 +58,12 @@
    "doc_view": "List",
    "label": "FRT Technology Provider",
    "link_to": "FRT Technology Provider",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Case Study",
+   "link_to": "Case Study",
    "type": "DocType"
   }
  ]
