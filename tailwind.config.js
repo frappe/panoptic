@@ -8,7 +8,8 @@ module.exports = {
 		enabled: process.env.FRAPPE_ENV === 'production',
 		content: [
 			'./panoptic/templates/**/*.html',
-			'./panoptic/www/**/*.html'
+			'./panoptic/www/**/*.html',
+			'./panoptic/**/templates/*.html'
 		],
 	},
 	theme: {
