@@ -1,0 +1,15 @@
+{
+ "creation": "2020-10-31 18:53:12.698300",
+ "docstatus": 0,
+ "doctype": "Web Template",
+ "fields": [],
+ "idx": 0,
+ "modified": "2020-10-31 18:53:17.172218",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "Stats Column",
+ "owner": "Administrator",
+ "standard": 1,
+ "template": "<div>\n    {% for key, value in _dict.iteritems() %}\n        <div class=\"px-8 py-4 border-b\">\n        \t<p class=\"text-5xl font-bold text-orange-500\">{{ key }}</p>\n        \t<p>{{ value }}</p>\n        </div>\n    {% endfor %\n</div>",
+ "type": "Section"
+}
