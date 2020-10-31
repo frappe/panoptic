@@ -34,7 +34,7 @@
   "government_link_title",
   "government_link",
   "links",
-  "financial_outlay_section",
+  "financials_section",
   "amount_spent",
   "section_break_27",
   "notes"
@@ -101,11 +101,13 @@
    "options": "FRT Linked Database"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_13",
    "fieldtype": "Section Break",
-   "hide_border": 1
+   "label": "Linked Database"
   },
   {
+   "collapsible": 1,
    "fieldname": "implementation_section",
    "fieldtype": "Section Break",
    "label": "Implementation"
@@ -117,6 +119,7 @@
    "options": "FRT Technology Provider"
   },
   {
+   "collapsible": 1,
    "fieldname": "legal_foundations_section",
    "fieldtype": "Section Break",
    "label": "Legal Foundations"
@@ -128,6 +131,7 @@
    "options": "Legal Basis"
   },
   {
+   "collapsible": 1,
    "fieldname": "links_section",
    "fieldtype": "Section Break",
    "label": "Links"
@@ -139,8 +143,10 @@
    "options": "FRT Link"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_27",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Misc"
   },
   {
    "fieldname": "notes",
@@ -152,11 +158,6 @@
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
-  },
-  {
-   "fieldname": "financial_outlay_section",
-   "fieldtype": "Section Break",
-   "label": "Financial Outlay"
   },
   {
    "fieldname": "amount_spent",
@@ -210,18 +211,26 @@
   {
    "fieldname": "government_link",
    "fieldtype": "Data",
-   "label": "Government Link"
+   "label": "Government Link",
+   "mandatory_depends_on": "eval:doc.government_link_title"
   },
   {
    "fieldname": "government_link_title",
    "fieldtype": "Data",
-   "label": "Government Link Title"
+   "label": "Government Link Title",
+   "mandatory_depends_on": "eval:doc.government_link"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "financials_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-31 16:10:17.246066",
+ "modified": "2020-10-31 18:10:19.281953",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",
@@ -241,7 +250,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "authority",
