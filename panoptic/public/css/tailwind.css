@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.border-around {
+	margin: -1px;
+}
+
 @layer components {
 	.nav-link {
 		@apply w-full px-3 py-2 rounded items-center justify-center;
