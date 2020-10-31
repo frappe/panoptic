@@ -1,0 +1,50 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Right to Information{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "Report an FRT System",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+	<div class="border-r border-l p-12">
+		<form class="max-w-lg mx-auto">
+			<label class="block">
+				<span class="text-white">Name</span>
+				<input class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+					placeholder="Your Full Name">
+			</label>
+
+			<label class="block mt-4">
+				<span class="text-white">Your Email Address</span>
+				<input class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+					placeholder="jane@example.com">
+			</label>
+
+			<label class="block mt-4">
+				<span class="text-white">More about the FRT System</span>
+				<textarea type="text" rows="8"
+					class="form-textarea bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+					placeholder="Describe the FRT System"></textarea>
+			</label>
+
+			<div class="flex mt-6">
+				<label class="flex items-center">
+					<input type="checkbox" class="form-checkbox" required>
+					<span class="ml-2">I agree to the <a href="/privacy-policy" class="underline">privacy
+							policy</a></span>
+				</label>
+			</div>
+			<div class="flex mt-4">
+				<button class="px-6 py-3 rounded-sm bg-orange-500 w-full" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+</section>
+{% endblock %}
