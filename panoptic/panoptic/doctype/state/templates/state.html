@@ -28,8 +28,8 @@
 		add_bottom_padding=0,
 	) }}
 	<div class="flex flex-wrap">
-		<div class="w-full md:w-2/3 md:border-r border-l">
-			<div id="chartdiv" class="h-full block"></div>
+		<div class="w-full md:w-2/3 border-r border-l border-b md:border-b-0">
+			<div id="chartdiv" class="h-full block" style="min-height: 400px;"></div>
 			<!-- <img style="max-height: 600px;" src="/assets/panoptic/images/demo-map.svg"> -->
 		</div>
 		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
@@ -68,7 +68,7 @@
 	{% for frt in frts %}
 	<a href="{{ frt.route }}" class="w-full md:w-1/3 lg:w-1/4 p-8 border-r border-b hover:bg-teal-blue-600">
 		<h2>{{ frt.authority }}</h2>
-		<div class="mt-3 mb-8">
+		<div class="mt-3 mb-3">
 			<p>{{ frt.technology_provider }}</p>
 			<p>{{ frt.district_name }}</p>
 			<p>ID: {{ frt.name }}</p>
