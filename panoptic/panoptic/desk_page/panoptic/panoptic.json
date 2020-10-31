@@ -28,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-10-31 13:53:46.058220",
+ "modified": "2020-10-31 15:48:24.825812",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",
@@ -37,33 +37,57 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
+   "color": "#cef6d1",
    "doc_view": "List",
+   "format": "{} Published",
    "label": "FRT",
    "link_to": "FRT",
+   "stats_filter": "{ \"published\": 1 }",
    "type": "DocType"
   },
   {
+   "color": "#ffe8cd",
    "doc_view": "List",
-   "label": "Authority",
-   "link_to": "Authority",
+   "format": "{} In Draft",
+   "label": "RTI",
+   "link_to": "RTI",
+   "stats_filter": "{ \"status\": \"Draft\" }",
    "type": "DocType"
   },
   {
+   "color": "#d2d2ff",
    "doc_view": "List",
-   "label": "FRT Database",
-   "link_to": "FRT Database",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "FRT Technology Provider",
-   "link_to": "FRT Technology Provider",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
+   "format": "{} Published",
    "label": "Case Study",
    "link_to": "Case Study",
+   "stats_filter": "{ \"published\": 1 }",
+   "type": "DocType"
+  },
+  {
+   "color": "#ffc4c4",
+   "doc_view": "List",
+   "format": "{} Authorities",
+   "label": "Authority",
+   "link_to": "Authority",
+   "stats_filter": "{ }",
+   "type": "DocType"
+  },
+  {
+   "color": "#ffc4c4",
+   "doc_view": "List",
+   "format": "{} Total",
+   "label": "FRT Database",
+   "link_to": "FRT Database",
+   "stats_filter": "{}",
+   "type": "DocType"
+  },
+  {
+   "color": "",
+   "doc_view": "List",
+   "format": "",
+   "label": "Technology Provider",
+   "link_to": "FRT Technology Provider",
+   "stats_filter": "",
    "type": "DocType"
   },
   {

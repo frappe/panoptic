@@ -5,8 +5,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "linked_database",
-  "status"
+  "linked_database"
  ],
  "fields": [
   {
@@ -16,20 +15,12 @@
    "label": "Linked Database",
    "options": "FRT Database",
    "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Planned\nLinked",
-   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-01 20:52:33.007663",
+ "modified": "2020-10-31 15:56:36.995074",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT Linked Database",

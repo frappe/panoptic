@@ -2,84 +2,123 @@
 
 {% block content %}
 <section class="container bg-panoptic-blue-500 border-l border-r border-b p-8 md:p-12">
-	<h1>{{ doc.authority }}</h1>
-	<p>{{ doc.name }}</p>
+	<h1>{{ authority }}</h1>
+	<p class="text-teal-blue-300">Last updated on {{ frappe.format_date(modified) }}</p>
+	<p class="text-teal-blue-300">{{ name }}</p>
 	<div class="flex flex-wrap mx-auto">
 		<div class="w-full md:w-1/3 pr-12 mt-8">
 			<h3 class="text-orange-500">Overview</h3>
 			<div class="mt-4">
 				<div class="mb-2">
-					Place: <b>{{ doc.district_name }}</b>
+					Place: <b>{{ district_name }}</b>
 				</div>
 				<div class="mb-2">
-					Purpose: <b>{{ doc.purpose }}</b>
+					Purpose: <b>{{ purpose }}</b>
 				</div>
 				<div class="mb-2">
-					Technology Partner: <b>{{ doc.technology_provider or "Not Available" }}</b>
+					Technology Partner: <b>{{ technology_provider or "Not Available" }}</b>
 				</div>
 				<div class="mb-2">
-					Date of Tender Publishing: <b>{{ doc.tender_publish_date or "Not Available" }}</b>
+					Date of Tender Publishing: <b>{{ tender_publish_date or "Not Available" }}</b>
 				</div>
 				<div class="mb-2">
-					Date of Reported Use: <b>{{ doc.reported_use_date or "Not Available" }}</b>
+					Date of Reported Use: <b>{{ reported_use_date or "Not Available" }}</b>
 				</div>
 				<div class="mb-2">
-					Status: <b>{{ doc.status }}</b>
+					Status: <b>{{ status or "Not Available" }}</b>
 				</div>
 				<div class="mb-2">
-					Storage Duration: <b>{{ doc.storage_duration }}</b>
+					Storage Duration: <b>{{ storage_duration }}</b>
+				</div>
+				<div class="mb-2">
+					Prescribed Standards: <b>{{ prescribed_technical_standards }}</b>
 				</div>
 			</div>
 		</div>
+		{% if rti|length or legal_basis|length or frt_legal_basis|length %}
 		<div class="w-full md:w-1/3 pr-12">
+			{% if rti|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Right to Information</h3>
 				<div class="mt-4">
-					{% for application in doc.rti %}
+					{% for application in rti %}
 					<div class="mb-2">
-						{{ application.rti }}
+						<a class="underline" href="/{{ application.route }}">{{ application.title }}</a>
 					</div>
 					{% endfor %}
 				</div>
 			</div>
+			{% endif %}
+			{% if legal_basis|length or frt_legal_basis|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Legal Basis</h3>
 				<div class="mt-4">
-					{% for case in doc.legal_basis %}
+					{% for basis in frt_legal_basis %}
+					<div class="mb-2">
+						{% if basis.url %}
+						<a class="underline" target="_blank" rel="noopener noreferrer"
+							href="{{ basis.url }}">{{ basis.title }}</a>
+						{% else %}
+						{{ basis.title }}
+						{% endif %}
+					</div>
+					{% endfor %}
+					{% for case in legal_basis %}
 					<div class="mb-2">
 						{{ case.title }}, {{ case.year }}
 					</div>
 					{% endfor %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
+		{% endif %}
+		{% if linked|length or links|length or government_link %}
 		<div class="w-full md:w-1/3 pr-12">
+			{% if linked|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Linked Database</h3>
 				<div class="mt-4">
-					{% for db in doc.linked %}
+					{% for db in linked %}
 					<div class="mb-2">
 						{{ db.linked_database }}
 					</div>
 					{% endfor %}
 				</div>
 			</div>
+			{% endif %}
+			{% if government_link and government_link_title %}
 			<div class="mt-8">
-				<h3 class="text-orange-500">Important Links</h3>
+				<h3 class="text-orange-500">Government Link</h3>
 				<div class="mt-4">
-					{% for link in doc.links %}
-					<a class="underline" href="{{ link.link }}" class="mb-2">{{ link.title }}</a>
+					<a class="underline" target="_blank" rel="noopener noreferrer"
+						href="{{ government_link }}">{{ government_link_title }}</a>
+				</div>
+			</div>
+			{% endif %}
+
+			{% if links|length %}
+			<div class="mt-8">
+				<h3 class="text-orange-500">Other Links</h3>
+				<div class="mt-4">
+					{% for link in links %}
+					<div class="mb-2">
+						<a class="underline" href="{{ link.link }}">{{ link.title }}</a>
+					</div>
 					{% endfor %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
+		{% endif %}
 	</div>
 	</div>
 </section>
+{% if frts|length %}
 <section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
 	<div class="bg-panoptic-blue-500 border-b w-full px-8 py-5 flex justify-between">
-		<div class="font-bold">Other FRTs around {{ doc.district_name }}</div>
-		<a href="/{{ state_route }}" class="text-aqua-blue-500">View All in {{ doc.state }}</a>
+		<div class="font-bold">Other FRTs around {{ district_name }}</div>
+		<a href="/{{ state_route }}" class="text-aqua-blue-500">View All in {{ state }}</a>
 	</div>
 	{% for frt in frts[:3] %}
 	<a href="/{{ frt.route }}" class="w-full md:w-1/3 p-8 border-r border-b hover:bg-teal-blue-600">
@@ -92,4 +131,5 @@
 	</a>
 	{% endfor %}
 </section>
+{% endif %}
 {% endblock %}

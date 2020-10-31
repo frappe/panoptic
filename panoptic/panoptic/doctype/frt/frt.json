@@ -9,7 +9,6 @@
  "field_order": [
   "authority",
   "purpose",
-  "verification_status",
   "column_break_3",
   "route",
   "published",
@@ -20,6 +19,7 @@
   "city",
   "details_section",
   "status",
+  "prescribed_technical_standards",
   "technology_provider",
   "tender_publish_date",
   "last_reported_use",
@@ -27,9 +27,12 @@
   "section_break_13",
   "linked",
   "legal_foundations_section",
+  "frt_legal_basis",
   "legal_basis",
   "rti",
   "links_section",
+  "government_link_title",
+  "government_link",
   "links",
   "financial_outlay_section",
   "amount_spent",
@@ -41,7 +44,8 @@
    "fieldname": "authority",
    "fieldtype": "Link",
    "label": "Authority",
-   "options": "Authority"
+   "options": "Authority",
+   "reqd": 1
   },
   {
    "fieldname": "state",
@@ -49,7 +53,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "State",
-   "options": "State"
+   "options": "State",
+   "reqd": 1
   },
   {
    "fieldname": "city",
@@ -67,7 +72,8 @@
    "fieldname": "purpose",
    "fieldtype": "Select",
    "label": "Purpose",
-   "options": "\nSecurity/Surveillance\nAuthentication of Identity"
+   "options": "\nSecurity/Surveillance\nAuthentication of Identity",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -87,14 +93,6 @@
    "fieldname": "last_reported_use",
    "fieldtype": "Date",
    "label": "Date of Reported Use"
-  },
-  {
-   "fieldname": "verification_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Verification Status",
-   "options": "Submitted\nVerified"
   },
   {
    "fieldname": "linked",
@@ -126,7 +124,7 @@
   {
    "fieldname": "legal_basis",
    "fieldtype": "Table",
-   "label": "Legal Basis",
+   "label": "Cases",
    "options": "Legal Basis"
   },
   {
@@ -137,7 +135,7 @@
   {
    "fieldname": "links",
    "fieldtype": "Table",
-   "label": "Links",
+   "label": "Other Links",
    "options": "FRT Link"
   },
   {
@@ -196,12 +194,34 @@
    "fieldtype": "Table",
    "label": "RTI",
    "options": "FRT RTI"
+  },
+  {
+   "fieldname": "prescribed_technical_standards",
+   "fieldtype": "Link",
+   "label": "Prescribed Technical Standards",
+   "options": "FRT Implementation Standard"
+  },
+  {
+   "fieldname": "frt_legal_basis",
+   "fieldtype": "Table",
+   "label": "Legal Basis",
+   "options": "FRT Legal Basis"
+  },
+  {
+   "fieldname": "government_link",
+   "fieldtype": "Data",
+   "label": "Government Link"
+  },
+  {
+   "fieldname": "government_link_title",
+   "fieldtype": "Data",
+   "label": "Government Link Title"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-25 16:10:04.328407",
+ "modified": "2020-10-31 16:10:17.246066",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",

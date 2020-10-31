@@ -20,9 +20,8 @@ class FRT(WebsiteGenerator):
 
 	def get_context(self, context):
 		fields = ["name", "authority", "district_name", "technology_provider", "route"]
-		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district}, limit=3)
-		frts_in_state = frappe.get_all("FRT", fields=fields, filters={"state": self.state}, limit=3)
-		context.frts = frts_in_district + frts_in_state
+		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district, "name": ['!=', self.name]}, or_filters={"state": self.state}, limit=3)
+		context.frts = frts_in_district
 		context.state_route = frappe.get_value("State", self.state, 'route')
 
 
