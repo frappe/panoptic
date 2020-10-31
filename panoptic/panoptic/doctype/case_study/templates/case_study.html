@@ -16,13 +16,13 @@
 				Published on <b>{{ frappe.format_date(published_date) }}</b>
 			</div>
 			<div class="flex mt-4 items-center">
-				{% set blogger = frappe.get_doc("Blogger", published_by) %}
-				<img src="{{ blogger.avatar }}" class="h-10 w-10 mr-2 rounded-full border-2"
-					alt="{{ blogger.full_name }}">
+				{% set member = frappe.get_doc("Team Member", published_by) %}
+				<img src="{{ member.avatar }}" class="h-10 w-10 mr-2 rounded-full border-2"
+					alt="{{ member.full_name }}">
 				<div>
-					<h4 class="text-lg text-orange-500">{{ blogger.full_name }}</h4>
-					{% if blogger.bio %}
-					<p>{{ blogger.bio[:80] }}</p>
+					<h4 class="text-lg text-orange-500">{{ member.full_name }}</h4>
+					{% if member.role %}
+					<p>{{ member.role[:80] }}</p>
 					{% endif %}
 				</div>
 			</div>

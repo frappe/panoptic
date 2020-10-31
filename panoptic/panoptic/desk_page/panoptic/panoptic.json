@@ -28,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-10-30 10:56:36.954779",
+ "modified": "2020-10-31 13:53:46.058220",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",
@@ -64,6 +64,12 @@
    "doc_view": "List",
    "label": "Case Study",
    "link_to": "Case Study",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Petition",
+   "link_to": "Petition",
    "type": "DocType"
   }
  ]

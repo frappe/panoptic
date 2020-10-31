@@ -1,0 +1,28 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Right to Information{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	<div class="flex flex-wrap justify-between border-l border-r border-b border-collapse">
+		<h1 class="p-5">RTIs Filed</h1>
+	</div>
+	<div class="flex flex-wrap border-r border-l">
+		{% for rti in rtis %}
+		<a href="/{{ rti.route }}" class="w-full p-12 border-b">
+			<div class="md:w-2/3">
+				<h2 class="text-orange-500">{{ rti.title }}</h2>
+				<div class="mt-2">
+					<div class="mt-1 text-teal-blue-300">Filed on {{ frappe.format_date(rti.filed_on) }}, by
+						{{ rti.rti_filed_by }}
+					</div>
+					<div class="mt-1 text-teal-blue-300">
+						{{ rti.status }}
+					</div>
+				</div>
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}
