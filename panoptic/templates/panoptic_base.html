@@ -45,6 +45,7 @@
 	{% endblock %}
 
 	<!-- End of Meta Tags-->
+	<!-- <link type="text/css" rel="stylesheet" href="/assets/css/web_form.css"> -->
 	<link href="/assets/panoptic/css/panoptic.css" rel="stylesheet">
 	<!-- <link href="/assets/indiaos/css/tailwind.css" rel="stylesheet">
 	<link href="/assets/indiaos/css/custom.css" rel="stylesheet"> -->
@@ -85,7 +86,7 @@
 	</script>
 </head>
 
-<body class="bg-teal-blue-500 font-body border-collapse"
+<body class="bg-teal-blue-500 font-body"
 	frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}"
 	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown"
 	{% endif -%}>

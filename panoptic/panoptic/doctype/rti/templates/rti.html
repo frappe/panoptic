@@ -1,8 +1,8 @@
 {% extends "templates/panoptic_base.html" %}
 
 {% block content %}
-<section class="container border-b border-r border-l border-collapse flex">
-	<article class="text-white border-r w-full md:w-2/3 p-12">
+<section class="container border-b border-r border-l flex">
+	<article class="text-white border-r w-full md:w-2/3 p-6 md:p-12">
 		<div class="prose prose-md">
 			<h1>{{ title }}</h1>
 			{{ frappe.utils.md_to_html(application_body) }}
