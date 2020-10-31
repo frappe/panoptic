@@ -4,9 +4,15 @@
 
 {% block content %}
 <section class="container border-b">
-	<div class="flex flex-wrap justify-between border-l border-r border-b">
-		<h1 class="p-5">Case Studies</h1>
-	</div>
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "Case Studies",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
 	<div class="flex flex-wrap border-r border-l">
 		{% for case in case_studies %}
 		<a href="/{{ case.route }}" class="p-12 border-b">
