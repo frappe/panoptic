@@ -76,7 +76,6 @@ window.onload = function () {
 	hs.properties.fill = 'white';
 
 	setTimeout(() => {
-		console.log(polygonSeries.getPolygonById(current_state));
 		if (current_state) {
 			chart.maxZoomLevel = 32;
 			chart.zoomToMapObject(polygonSeries.getPolygonById(current_state));

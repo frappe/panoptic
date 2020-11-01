@@ -9,7 +9,8 @@ module.exports = {
 		content: [
 			'./panoptic/templates/**/*.html',
 			'./panoptic/www/**/*.html',
-			'./panoptic/**/templates/*.html'
+			'./panoptic/**/templates/*.html',
+			'./panoptic/**/web_templates/*.html'
 		],
 	},
 	theme: {

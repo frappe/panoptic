@@ -4,12 +4,13 @@ def get_context(context):
 	context.total_frt = frappe.db.count("FRT")
 	context.total_frs = frappe.db.count("Facial Recognition System")
 	context.state_wise_frt = get_state_wise_frt()
-	context.state_routes = get_state_route_map()
+	context.state_routes = get_state_route_map(field="state_id")
+	context.state_name_routes = get_state_route_map(field="state_name")
 	context.total_authorities = frappe.db.count("Authority")
 
-def get_state_route_map():
-	states = frappe.get_all("State", fields={"state_id", "route"})
-	return {d.state_id:d.route for d in states}
+def get_state_route_map(field="state_id"):
+	states = frappe.get_all("State", fields={field, "route"})
+	return {d[field]:d.route for d in states}
 
 def get_state_wise_frt():
 	data = frappe.db.sql("""
