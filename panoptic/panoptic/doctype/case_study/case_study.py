@@ -9,3 +9,11 @@ from frappe.website.website_generator import WebsiteGenerator
 class CaseStudy(WebsiteGenerator):
 	def make_route(self):
 		return 'case-study/' + self.scrub(self.title)
+
+	def get_context(self, context):
+		context.metatags = {
+			"name": "Case Study: {0}".format(self.title),
+			"description": self.description or "Literature and reports about facial recognition tech in India",
+			"image": self.meta_image or "/assets/panoptic/images/meta/case-study.png",
+			"og:type": "article"
+		}

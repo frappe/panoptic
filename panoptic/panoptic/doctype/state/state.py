@@ -19,6 +19,7 @@ class State(WebsiteGenerator):
 		self.name = self.state_name
 
 	def get_context(self, context):
+		context.no_cache = 1
 		context.frts = self.get_all_frts(filters={ "state": self.name })
 
 		context.total_frt = frappe.db.count("FRT", {"state": self.name}) or 0
@@ -28,6 +29,12 @@ class State(WebsiteGenerator):
 		context.state_wise_frt = get_state_wise_frt()
 		context.state_name_routes = get_state_route_map(field="state_name")
 		context.state_routes = get_state_route_map(field="state_id")
+
+		context.metatags = {
+			"name": "FRT Systems in {0}".format(self.state_name),
+			"description": "Facial Recognition Systems in {0}".format(self.state_name),
+			"image": "/assets/panoptic/images/meta/generic.png"
+		}
 
 	def get_all_frts(self, filters={}, fields=None):
 		if not fields:

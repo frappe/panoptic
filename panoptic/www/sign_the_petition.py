@@ -2,6 +2,12 @@ import frappe
 from frappe.utils import cint
 
 def get_context(context):
+	context.metatags = {
+		"name": "Sign the Petition",
+		"description": "Help us keep facial recognition tech in check",
+		"image": "/assets/panoptic/images/meta/petition.png"
+	}
+
 	context.no_cache = 1
 	context.title = "Sign the Petition"
 	context.submitted = False

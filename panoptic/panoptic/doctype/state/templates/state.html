@@ -1,5 +1,9 @@
 {% extends "templates/panoptic_base.html" %}
 
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
 {% block script %}
 <script>
 	window.state_wise_frt = {{ state_wise_frt }};

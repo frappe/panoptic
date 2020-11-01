@@ -1295,8 +1295,16 @@ h3 {
   font-size: 1.25rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
 }
 
 .leading-tight {
@@ -1426,6 +1434,11 @@ h3 {
   padding-right: 1.25rem;
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1434,6 +1447,11 @@ h3 {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .pr-12 {
@@ -1593,8 +1611,20 @@ h3 {
 }
 
 @media (min-width: 768px) {
+  .md\:border-t-0 {
+    border-top-width: 0;
+  }
+
   .md\:border-b-0 {
     border-bottom-width: 0;
+  }
+
+  .md\:border-l-0 {
+    border-left-width: 0;
+  }
+
+  .md\:border-l {
+    border-left-width: 1px;
   }
 
   .md\:block {
@@ -1603,6 +1633,10 @@ h3 {
 
   .md\:h-12 {
     height: 3rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
   }
 
   .md\:text-4xl {
@@ -1636,6 +1670,11 @@ h3 {
 
   .md\:p-12 {
     padding: 3rem;
+  }
+
+  .md\:py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .md\:px-8 {

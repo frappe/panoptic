@@ -1,5 +1,9 @@
 {% extends "templates/panoptic_base.html" %}
 
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
 {% block content %}
 <section class="container border-b border-r border-l flex">
 	<article class="text-white border-r w-full md:w-2/3 p-6 md:p-12">
@@ -12,6 +16,9 @@
 		<div class="mb-12">
 			<h3>Details</h3>
 			<div class="mt-4">
+				<div class="mt-2">
+					RTI Filed to: <b>{{ authority }}</b>
+				</div>
 				<div class="mt-2">
 					RTI Status: <b>{{ status }}</b>
 				</div>
