@@ -14463,6 +14463,14 @@ h3 {
   margin: -1px;
 }
 
+.toc-html {
+  margin-left: -15px;
+}
+
+.toc-html ul {
+  margin-left: 20px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

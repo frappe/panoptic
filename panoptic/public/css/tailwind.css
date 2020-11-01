@@ -6,6 +6,14 @@
 	margin: -1px;
 }
 
+.toc-html {
+	margin-left: -15px;
+}
+
+.toc-html ul {
+	margin-left: 20px;
+}
+
 @layer components {
 	.nav-link {
 		@apply w-full px-3 py-2 rounded items-center justify-center;
