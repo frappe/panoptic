@@ -28,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-10-31 15:48:24.825812",
+ "modified": "2020-11-08 15:52:50.551226",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",
@@ -94,6 +94,12 @@
    "doc_view": "List",
    "label": "Petition",
    "link_to": "Petition",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Settings",
+   "link_to": "Panoptic Settings",
    "type": "DocType"
   }
  ]
