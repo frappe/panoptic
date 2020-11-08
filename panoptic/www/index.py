@@ -21,7 +21,8 @@ def get_state_wise_frt():
 			`tabFRT` as `frt`,
 			`tabState` as `st`
 		WHERE
-			`frt`.`state`=`st`.`name`
+			`frt`.`state`=`st`.`name` AND
+			`frt`.`published` = 1
 		GROUP BY
 			`frt`.`state`
 	""", as_dict=1)
