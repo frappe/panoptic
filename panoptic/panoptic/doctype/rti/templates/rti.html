@@ -53,17 +53,16 @@
 
 		<div class="mb-12">
 			<h3>RTI Filed By</h3>
-			<div class="flex mt-4 items-center">
-				{% set member = frappe.get_doc("Team Member", published_by) %}
-				<img src="{{ member.avatar }}" class="h-10 w-10 mr-2 rounded-full border-2"
-					alt="{{ member.full_name }}">
-				<div>
-					<h4 class="text-lg text-orange-500">{{ member.full_name }}</h4>
-					{% if member.role %}
-					<p>{{ member.role[:80] }}</p>
-					{% endif %}
-				</div>
-			</div>
+			{{ web_block(
+				"Avatar",
+				values={
+					"member": published_by,
+					"mt": 4
+				},
+				add_container=0,
+				add_top_padding=0,
+				add_bottom_padding=0,
+			) }}
 		</div>
 
 		<div class="">

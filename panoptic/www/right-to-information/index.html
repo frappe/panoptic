@@ -19,19 +19,19 @@
 	) }}
 	<div class="flex flex-wrap border-r border-l">
 		{% for rti in rtis %}
-		<a href="/{{ rti.route }}" class="w-full p-6 md:p-6 md:p-12 border-b">
-			<div class="md:w-2/3">
-				<h2 class="text-orange-500">{{ rti.title }}</h2>
-				<div class="mt-2">
-					<div class="mt-1 text-teal-blue-300">Filed on {{ frappe.format_date(rti.filed_on) }}, by
-						{{ rti.rti_filed_by }}
-					</div>
-					<div class="mt-1 text-teal-blue-300">
-						{{ rti.status }}
-					</div>
-				</div>
-			</div>
-		</a>
+			{{ web_block(
+				"Article List Item",
+				values=dict(
+					route=rti.route,
+					title=rti.title,
+					published_date=rti.filed_on,
+					published_by=rti_filed_by,
+					description=rti.status
+				),
+				add_container=0,
+				add_top_padding=0,
+				add_bottom_padding=0,
+			) }}
 		{% endfor %}
 	</div>
 </section>

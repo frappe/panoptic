@@ -20,14 +20,13 @@
 	) }}
 	<div class="flex flex-wrap border-r border-l">
 		{% for case in case_studies %}
-		<a href="/{{ case.route }}" class="p-6 md:p-12 border-b">
-			<div class="md:w-2/3">
-				<h2 class="text-orange-500">{{ case.title }}</h2>
-				<span class="mt-2 text-teal-blue-300">Published on {{ frappe.format_date(case.published_date) }}, by
-					{{ case.published_by }}</span>
-				<p class="mt-4">{{ case.description }}</p>
-			</div>
-		</a>
+			{{ web_block(
+				"Article List Item",
+				values=case,
+				add_container=0,
+				add_top_padding=0,
+				add_bottom_padding=0,
+			) }}
 		{% endfor %}
 	</div>
 </section>

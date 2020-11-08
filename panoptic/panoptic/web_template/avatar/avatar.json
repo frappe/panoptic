@@ -1,0 +1,35 @@
+{
+ "creation": "2020-11-08 16:28:34.627339",
+ "docstatus": 0,
+ "doctype": "Web Template",
+ "fields": [
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Team Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mt",
+   "fieldtype": "Int",
+   "label": "Margin Top",
+   "reqd": 0
+  },
+  {
+   "fieldname": "mb",
+   "fieldtype": "Data",
+   "label": "Margin Bottom",
+   "reqd": 0
+  }
+ ],
+ "idx": 0,
+ "modified": "2020-11-08 16:32:46.519822",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "Avatar",
+ "owner": "Administrator",
+ "standard": 1,
+ "template": "",
+ "type": "Component"
+}

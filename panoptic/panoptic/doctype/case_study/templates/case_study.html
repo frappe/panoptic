@@ -6,32 +6,46 @@
 
 {% block content %}
 <section class="container border-b border-r border-l flex">
-	<article class="text-white border-r w-full md:w-2/3 p-6 md:p-12">
-		<div class="prose prose-md">
-			<h1>{{ doc.title }}</h1>
-			{{ frappe.utils.md_to_html(doc.content) }}
+	<article class="text-white border-r w-full md:w-2/3">
+		<div class="p-6 md:p-12">
+			<div class="prose prose-md">
+				<h1>{{ doc.title }}</h1>
+				{{ frappe.utils.md_to_html(doc.content) }}
+			</div>
+		</div>
+		<div class="flex flex-wrap border-t p-6 md:p-12">
+			<div class="w-1/2">
+				<span class="text-muted">Published By</span>
+				{{ web_block(
+					"Avatar",
+					values={
+						"member": published_by,
+						"mt": 2
+					},
+					add_container=0,
+					add_top_padding=0,
+					add_bottom_padding=0,
+				) }}
+			</div>
 		</div>
 	</article>
 	<div class="p-12 hidden md:block w-full md:w-1/3 text-teal-blue-300">
-		{% if description %}
 		<div class="mb-12 pr-12">
-			{{ description }}
+			<p class="text-orange-500">{{ description or '' }}</p>
 			<div class="mt-4">
 				Published on <b>{{ frappe.format_date(published_date) }}</b>
 			</div>
-			<div class="flex mt-4 items-center">
-				{% set member = frappe.get_doc("Team Member", published_by) %}
-				<img src="{{ member.avatar }}" class="h-10 w-10 mr-2 rounded-full border-2"
-					alt="{{ member.full_name }}">
-				<div>
-					<h4 class="text-lg text-orange-500">{{ member.full_name }}</h4>
-					{% if member.role %}
-					<p>{{ member.role[:80] }}</p>
-					{% endif %}
-				</div>
-			</div>
+			{{ web_block(
+				"Avatar",
+				values={
+					"member": published_by,
+					"mt": 4
+				},
+				add_container=0,
+				add_top_padding=0,
+				add_bottom_padding=0,
+			) }}
 		</div>
-		{% endif %}
 
 		<div class="mb-12">
 			<h3>Table of Contents</h3>

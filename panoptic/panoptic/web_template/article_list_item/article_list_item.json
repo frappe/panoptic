@@ -1,0 +1,47 @@
+{
+ "creation": "2020-11-08 16:36:19.699699",
+ "docstatus": 0,
+ "doctype": "Web Template",
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 0
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "reqd": 0
+  },
+  {
+   "fieldname": "published_date",
+   "fieldtype": "Data",
+   "label": "Published Date",
+   "reqd": 0
+  },
+  {
+   "fieldname": "published_by",
+   "fieldtype": "Link",
+   "label": "Published By",
+   "options": "Team Member",
+   "reqd": 0
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "reqd": 0
+  }
+ ],
+ "idx": 0,
+ "modified": "2020-11-08 16:36:58.861308",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "Article List Item",
+ "owner": "Administrator",
+ "standard": 1,
+ "template": "",
+ "type": "Component"
+}
