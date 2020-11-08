@@ -24,9 +24,9 @@ class State(WebsiteGenerator):
 		context.no_cache = 1
 		context.frts = self.get_all_frts(filters={ "state": self.name })
 
-		context.total_frt = frappe.db.count("FRT", {"state": self.name}) or 0
-		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, "status": "In Utilization"}) or 0
-		context.total_cost = sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name }, pluck="amount_spent"))
+		context.total_frt = frappe.db.count("FRT", {"state": self.name, 'published': 1}) or 0
+		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, 'published': 1, "status": "In Utilization"}) or 0
+		context.total_cost = sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name, 'published': 1 }, pluck="amount_spent"))
 
 		context.state_wise_frt = get_state_wise_frt()
 		context.state_name_routes = get_state_route_map(field="state_name")

@@ -2,7 +2,7 @@ import frappe
 from panoptic.panoptic.api import get_state_route_map, get_state_wise_frt
 
 def get_context(context):
-	context.total_frt = frappe.db.count("FRT")
+	context.total_frt = frappe.db.count("FRT", {"published": 1})
 	context.total_frs = frappe.db.count("Facial Recognition System")
 	context.state_wise_frt = get_state_wise_frt()
 	context.state_routes = get_state_route_map(field="state_id")
