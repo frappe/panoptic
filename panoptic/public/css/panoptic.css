@@ -1449,11 +1449,6 @@ h3 {
   padding-right: 2rem;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
 .pr-12 {
   padding-right: 3rem;
 }
@@ -1602,14 +1597,6 @@ h3 {
   }
 }
 
-.toc-html {
-  margin-left: -15px;
-}
-
-.toc-html ul {
-  margin-left: 20px;
-}
-
 @media (min-width: 768px) {
   .md\:border-t-0 {
     border-top-width: 0;
@@ -1633,10 +1620,6 @@ h3 {
 
   .md\:h-12 {
     height: 3rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
   }
 
   .md\:text-4xl {
@@ -1685,6 +1668,17 @@ h3 {
   .md\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .md\:truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .md\:w-1\/3 {
