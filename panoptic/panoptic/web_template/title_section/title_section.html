@@ -1,6 +1,9 @@
 <div class="flex flex-wrap justify-between border-l border-r border-b">
-	<div class="truncate w-full md:w-2/3 px-12 py-6">
+	<div class="w-full md:w-2/3 px-12 py-6">
 		<h1 class="truncate text-2xl md:text-3xl text-orange-500">{{ title }}</h1>
+		{% if subtitle %}
+			<p>{{ subtitle }}</p>
+		{% endif %}
 	</div>
 	{% if button_label %}
 	<button id="{{ button_id or 'titleButton' }}"
