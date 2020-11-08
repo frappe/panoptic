@@ -6,6 +6,8 @@ from __future__ import unicode_literals
 import frappe
 from frappe.website.website_generator import WebsiteGenerator
 
+from panoptic.panoptic.api import get_state_route_map, get_state_wise_frt
+
 class State(WebsiteGenerator):
 
 	published = 1
@@ -45,23 +47,3 @@ class State(WebsiteGenerator):
 		})
 
 		return frappe.get_all("FRT", fields=fields, filters=filters, limit=30)
-
-def get_state_route_map(field="state_id"):
-	states = frappe.get_all("State", fields={field, "route"})
-	return {d[field]:d.route for d in states}
-
-def get_state_wise_frt(cache=True):
-	data = frappe.db.sql("""
-		SELECT
-			`st`.`state_id`,
-			count(`frt`.`name`) as count
-		FROM
-			`tabFRT` as `frt`,
-			`tabState` as `st`
-		WHERE
-			`frt`.`state`=`st`.`name`
-		GROUP BY
-			`frt`.`state`
-	""", as_dict=1)
-
-	return {d.state_id:d.count for d in data}
