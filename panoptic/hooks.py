@@ -14,6 +14,8 @@ app_license = "MIT"
 # application home page (will override Website Settings)
 home_page = "index"
 
+update_website_context = ["panoptic.panoptic.api.update_website_context"]
+
 # base_template = "templates/panoptic_base.html"
 
 # Includes in <head>
