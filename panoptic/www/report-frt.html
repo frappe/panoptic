@@ -12,13 +12,12 @@
 		"Title Section",
 		values={
 			"title": title,
-			"subtitle": "If you have come across any new FRT project which is not reflected in the platform herein as well as if you have any updated information on the projects which are included, please fill out the form below to convey this information to us."
 		},
 		add_container=0,
 		add_top_padding=0,
 		add_bottom_padding=0,
 	) }}
-	<div class="border-r border-l p-12">
+	<div class="border-r border-l flex flex-wrap">
 		{% if submitted %}
 		<div class="max-w-lg mx-auto">
 			<h3>
@@ -38,62 +37,70 @@
 				Now</a>
 		</div>
 		{% else %}
-		<form name="report-frt-form" class="max-w-lg mx-auto" method="POST">
-			<label class="block">
-				<span class="text-white">Name</span>
-				<input name="full_name"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-					placeholder="Your Full Name">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Your Email Address</span>
-				<input name="email" class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-					required placeholder="jane@example.com">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Location of the FRT System</span>
-				<p class="text-teal-blue-300">Please add city, state, district and any other information possible.</p
-					class="text-teal-blue-300">
-				<input name="location"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-					placeholder="jane@example.com">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Authority using the Facial Recognition system.</span>
-				<input name="authority" type="text"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-					placeholder="Authority"></input>
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">More about the FRT System</span>
-				<p class="text-teal-blue-300">Please provide media links (including news articles, video coverage etc.)
-					or documents which mention the FRT System *</p>
-				<textarea name="description" type="text" rows="8"
-					class="form-textarea bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-					placeholder="Describe the FRT System"></textarea>
-			</label>
-
-			<label class="mt-6 hidden">
-				<span class="text-white">Designation</span>
-				<input id="csrf_input_data" name="csrf_token" class="form-input" value="">
-			</label>
-
-			<div class="flex mt-6">
-				<label class="flex items-center">
-					<input name="agree_terms" type="checkbox" class="form-checkbox" required>
-					<span class="ml-2">I agree to the <a href="/privacy-policy" class="underline">privacy
-							policy</a></span>
+		<div class="prose prose-md w-full md:w-1/2 border-r p-6 md:p-12">
+			{{ frappe.utils.md_to_html(settings.report_an_frt_intro) }}
+		</div>
+		<div class="p-6 md:p-12 w-full md:w-1/2">
+			<form name="report-frt-form" class="max-w-lg mx-auto" method="POST">
+				<label class="block">
+					<span class="text-white">Name</span>
+					<input name="full_name"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="Your Full Name">
 				</label>
-			</div>
-			<div class="flex mt-6">
-				<button class="px-6 py-3 rounded-sm bg-orange-500 w-full" type="button" onclick="submitForm()">Submit
-					Report</button>
-			</div>
-		</form>
+
+				<label class="block mt-6">
+					<span class="text-white">Your Email Address</span>
+					<input name="email"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="jane@example.com">
+				</label>
+
+				<label class="block mt-6">
+					<span class="text-white">Location of the FRT System</span>
+					<p class="text-teal-blue-300">Please add city, state, district and any other information possible.
+					</p class="text-teal-blue-300">
+					<input name="location"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="jane@example.com">
+				</label>
+
+				<label class="block mt-6">
+					<span class="text-white">Authority using the Facial Recognition system.</span>
+					<input name="authority" type="text"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="Authority"></input>
+				</label>
+
+				<label class="block mt-6">
+					<span class="text-white">More about the FRT System</span>
+					<p class="text-teal-blue-300">Please provide media links (including news articles, video coverage
+						etc.)
+						or documents which mention the FRT System *</p>
+					<textarea name="description" type="text" rows="8"
+						class="form-textarea bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="Describe the FRT System"></textarea>
+				</label>
+
+				<label class="mt-6 hidden">
+					<span class="text-white">Designation</span>
+					<input id="csrf_input_data" name="csrf_token" class="form-input" value="">
+				</label>
+
+				<div class="flex mt-6">
+					<label class="flex items-center">
+						<input name="agree_terms" type="checkbox" class="form-checkbox" required>
+						<span class="ml-2">I agree to the <a href="/privacy-policy" class="underline">privacy
+								policy</a></span>
+					</label>
+				</div>
+				<div class="flex mt-6">
+					<button class="px-6 py-3 rounded-sm bg-orange-500 w-full" type="button"
+						onclick="submitForm()">Submit
+						Report</button>
+				</div>
+			</form>
+		</div>
 		{% endif %}
 	</div>
 </section>

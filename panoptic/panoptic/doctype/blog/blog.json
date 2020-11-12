@@ -8,6 +8,7 @@
  "field_order": [
   "title",
   "published_by",
+  "category",
   "route",
   "column_break_4",
   "published",
@@ -97,15 +98,22 @@
    "fieldname": "meta_image",
    "fieldtype": "Attach Image",
    "label": "Meta Image"
+  },
+  {
+   "default": "Case Study",
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Case Study\nUpdate"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-31 15:26:39.387579",
+ "modified": "2020-11-12 14:16:56.106285",
  "modified_by": "Administrator",
  "module": "Panoptic",
- "name": "Case Study",
+ "name": "Blog",
  "owner": "Administrator",
  "permissions": [
   {

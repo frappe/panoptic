@@ -12,13 +12,12 @@
 		"Title Section",
 		values={
 			"title": title,
-			"subtitle": "The usage of facial recognition technology is creeping into every facet of our lives. New projects which use facial recognition technology, either for the purpose of security/surveillance or for the purpose of authentication of identity, are being developed and deployed by the government right now! <br><br> In the absence of a safeguarding legislation which would protect the privacy of the citizens of India and a law which would regulate the use of this technology, the dangers that such a technology present increase manifold. In such a situation, even the development of this technology is harmful and should be stopped. Sign the petition below to show your support for IFF’s call to put a ban on the use of facial recognition technology in India."
 		},
 		add_container=0,
 		add_top_padding=0,
 		add_bottom_padding=0,
 	) }}
-	<div class="border-r border-l p-12">
+	<div class="border-r border-l flex flex-wrap">
 		{% if submitted %}
 		<div class="max-w-lg mx-auto">
 			<h3>
@@ -38,59 +37,66 @@
 				Now</a>
 		</div>
 		{% else %}
-		<form name="petition-form" class="max-w-lg mx-auto" method="POST" encType="multipart/form-data">
-			<label class="block">
-				<span class="text-white">Full Name</span>
-				<input name="full_name"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-					placeholder="Your Full Name">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Your Email Address</span>
-				<input name="email" class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-					required placeholder="jane@example.com">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Organization</span>
-				<input name="organization"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-					placeholder="Acme Corp">
-			</label>
-
-			<label class="block mt-6">
-				<span class="text-white">Designation</span>
-				<input name="designation"
-					class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-					placeholder="Engineer">
-			</label>
-
-			<label class="mt-6 hidden">
-				<span class="text-white">Designation</span>
-				<input id="csrf_input_data" name="csrf_token" class="form-input" value="">
-			</label>
-
-			<div class="flex mt-6">
-				<label class="flex items-center">
-					<input type="checkbox" class="form-checkbox" required>
-					<span name="above_eighteen" class="ml-2">I am an Indian citizen above 18 years of age.</span>
+		<div class="prose prose-md w-full md:w-1/2 border-r p-6 md:p-12">
+			{{ frappe.utils.md_to_html(settings.sign_the_petition_intro) }}
+		</div>
+		<div class="p-6 md:p-12 w-full md:w-1/2">
+			<form name="petition-form" class="max-w-lg" method="POST" encType="multipart/form-data" class="p-12">
+				<label class="block">
+					<span class="text-white">Full Name</span>
+					<input name="full_name"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="Your Full Name">
 				</label>
-			</div>
 
-			<div class="flex mt-4">
-				<label class="flex items-center">
-					<input type="checkbox" class="form-checkbox" required>
-					<span name="agree_terms" class="ml-2">I agree to the <a href="/privacy-policy"
-							class="underline">privacy
-							policy</a></span>
+				<label class="block mt-6">
+					<span class="text-white">Your Email Address</span>
+					<input name="email"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
+						placeholder="jane@example.com">
 				</label>
-			</div>
-			<div class="flex mt-6">
-				<button class="px-6 py-3 rounded-sm bg-orange-500 w-full" type="button" onclick="submitForm()">Sign the
-					Petition</button>
-			</div>
-		</form>
+
+				<label class="block mt-6">
+					<span class="text-white">Organization</span>
+					<input name="organization"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
+						placeholder="Acme Corp">
+				</label>
+
+				<label class="block mt-6">
+					<span class="text-white">Designation</span>
+					<input name="designation"
+						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
+						placeholder="Engineer">
+				</label>
+
+				<label class="mt-6 hidden">
+					<span class="text-white">Designation</span>
+					<input id="csrf_input_data" name="csrf_token" class="form-input" value="">
+				</label>
+
+				<div class="flex mt-6">
+					<label class="flex items-center">
+						<input type="checkbox" class="form-checkbox" required>
+						<span name="above_eighteen" class="ml-2">I am an Indian citizen above 18 years of age.</span>
+					</label>
+				</div>
+
+				<div class="flex mt-4">
+					<label class="flex items-center">
+						<input type="checkbox" class="form-checkbox" required>
+						<span name="agree_terms" class="ml-2">I agree to the <a href="/privacy-policy"
+								class="underline">privacy
+								policy</a></span>
+					</label>
+				</div>
+				<div class="flex mt-6">
+					<button class="px-6 py-3 rounded-sm bg-orange-500 w-full" type="button" onclick="submitForm()">Sign
+						the
+						Petition</button>
+				</div>
+			</form>
+		</div>
 		{% endif %}
 	</div>
 </section>

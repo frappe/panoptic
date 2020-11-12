@@ -10,7 +10,7 @@ from frappe.website.website_generator import WebsiteGenerator
 class FRT(WebsiteGenerator):
 	def autoname(self):
 		if not self.name:
-				self.name = make_autoname("FRT-.######")
+			self.name = make_autoname("FRT-.######")
 
 	def on_update(self):
 		self.route = self.make_route()
@@ -19,9 +19,22 @@ class FRT(WebsiteGenerator):
 		return frappe.get_value("State", self.state, 'route') + '/' + self.name
 
 	def get_context(self, context):
+		context.no_cache = 1
 		fields = ["name", "authority", "district_name", "technology_provider", "route"]
 		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district, "name": ['!=', self.name]}, or_filters={"state": self.state}, limit=3)
 		context.frts = frts_in_district
+		context.news_links = False
+		context.other_links = False
+		for link in self.links:
+			if link.type == "News Article":
+				context.news_links = True
+				break
+
+		for link in self.links:
+			if link.type != "News Article":
+				context.other_links = True
+				break
+
 		context.state_route = frappe.get_value("State", self.state, 'route')
 
 

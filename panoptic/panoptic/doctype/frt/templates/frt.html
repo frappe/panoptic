@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		{% if rti|length or legal_basis|length or frt_legal_basis|length %}
+		{% if rti|length or legal_basis|length or frt_legal_basis|length or linked|length %}
 		<div class="w-full md:w-1/3 pr-12">
 			{% if rti|length %}
 			<div class="mt-8">
@@ -71,10 +71,6 @@
 				</div>
 			</div>
 			{% endif %}
-		</div>
-		{% endif %}
-		{% if linked|length or links|length or government_link %}
-		<div class="w-full md:w-1/3 pr-12">
 			{% if linked|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Linked Database</h3>
@@ -87,6 +83,10 @@
 				</div>
 			</div>
 			{% endif %}
+		</div>
+		{% endif %}
+		{% if links|length or government_link %}
+		<div class="w-full md:w-1/3 pr-12">
 			{% if government_link and government_link_title %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Government Link</h3>
@@ -97,14 +97,30 @@
 			</div>
 			{% endif %}
 
-			{% if links|length %}
+			{% if news_links %}
+			<div class="mt-8">
+				<h3 class="text-orange-500">Media Links</h3>
+				<div class="mt-4">
+					{% for link in links %}
+					{% if link.type == "News Article" %}
+					<div class="mb-2">
+						<a class="underline" href="{{ link.link }}">{{ link.title }}</a>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+			{% if other_links %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Other Links</h3>
 				<div class="mt-4">
 					{% for link in links %}
+					{% if link.type != "News Article" %}
 					<div class="mb-2">
 						<a class="underline" href="{{ link.link }}">{{ link.title }}</a>
 					</div>
+					{% endif %}
 					{% endfor %}
 				</div>
 			</div>

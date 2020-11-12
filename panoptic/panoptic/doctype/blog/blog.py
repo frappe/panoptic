@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 # import frappe
 from frappe.website.website_generator import WebsiteGenerator
 
-class CaseStudy(WebsiteGenerator):
+class Blog(WebsiteGenerator):
 	def make_route(self):
 		return 'case-study/' + self.scrub(self.title)
 

@@ -9,7 +9,8 @@
   "provider_name",
   "origin",
   "website",
-  "roc_details"
+  "roc_details",
+  "attachment"
  ],
  "fields": [
   {
@@ -33,11 +34,16 @@
    "fieldname": "roc_details",
    "fieldtype": "Data",
    "label": "ROC Details"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-02 18:05:16.480380",
+ "modified": "2020-11-12 14:40:03.869662",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT Technology Provider",

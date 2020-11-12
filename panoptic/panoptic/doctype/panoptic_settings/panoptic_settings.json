@@ -8,14 +8,19 @@
   "youtube",
   "twitter",
   "instagram",
-  "privacy_policy_section",
-  "privacy_policy"
+  "website_copy_section",
+  "privacy_policy",
+  "report_an_frt_intro",
+  "sign_the_petition_intro",
+  "donate_pitch"
  ],
  "fields": [
   {
    "fieldname": "privacy_policy",
    "fieldtype": "Markdown Editor",
-   "label": "Privacy Policy"
+   "in_list_view": 1,
+   "label": "Privacy Policy",
+   "reqd": 1
   },
   {
    "fieldname": "youtube",
@@ -33,15 +38,35 @@
    "label": "Instagram"
   },
   {
-   "fieldname": "privacy_policy_section",
+   "fieldname": "website_copy_section",
    "fieldtype": "Section Break",
-   "label": "Privacy Policy"
+   "label": "Website Copy"
+  },
+  {
+   "fieldname": "report_an_frt_intro",
+   "fieldtype": "Markdown Editor",
+   "label": "Report an FRT Intro",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sign_the_petition_intro",
+   "fieldtype": "Markdown Editor",
+   "in_list_view": 1,
+   "label": "Sign the Petition Intro",
+   "reqd": 1
+  },
+  {
+   "fieldname": "donate_pitch",
+   "fieldtype": "Markdown Editor",
+   "in_list_view": 1,
+   "label": "Donate Pitch",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-11-08 15:53:39.347446",
+ "modified": "2020-11-12 14:11:53.464981",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic Settings",

@@ -1,3 +1,4 @@
+
 {% extends "templates/panoptic_base.html" %}
 
 {% block meta_block %}
@@ -5,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <section class="container border-b border-r border-l flex">
 	<article class="text-white border-r w-full md:w-2/3">
 		<div class="p-6 md:p-12">
@@ -15,7 +17,7 @@
 		</div>
 		<div class="flex flex-wrap border-t p-6 md:p-12">
 			<div class="w-1/2">
-				<span class="text-muted">Published By</span>
+				<span class="text-teal-blue-300">Published By</span>
 				{{ web_block(
 					"Avatar",
 					values={
@@ -26,6 +28,18 @@
 					add_top_padding=0,
 					add_bottom_padding=0,
 				) }}
+			</div>
+			<div class="w-1/2 text-right">
+				<span class="text-teal-blue-300">Share this Case Study</span>
+				<div class="mt-4">
+					<a href="https://twitter.com/intent/tweet?text=Why Pay for Support Subscription?&amp;url=frappe.io/blog/erpnext-implementation/why-pay-per-user" class="text-teal-blue-200 ml-2 fa fa-twitter" target="_blank"></a>
+
+					<a href="https://www.facebook.com/sharer.php?u=frappe.io/blog/erpnext-implementation/why-pay-per-user" class="text-teal-blue-200 ml-2 fa fa-facebook" target="_blank"></a>
+
+					<a href="https://www.linkedin.com/sharing/share-offsite/?url=frappe.io/blog/erpnext-implementation/why-pay-per-user" class="text-teal-blue-200 ml-2 fa fa-linkedin" target="_blank"></a>
+
+					<a href="mailto:?subject=Why Pay for Support Subscription?&amp;body=frappe.io/blog/erpnext-implementation/why-pay-per-user" class="text-teal-blue-200 ml-2 fa fa-envelope" target="_blank"></a>
+				</div>
 			</div>
 		</div>
 	</article>
