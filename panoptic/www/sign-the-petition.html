@@ -19,7 +19,7 @@
 	) }}
 	<div class="border-r border-l flex flex-wrap">
 		{% if submitted %}
-		<div class="max-w-lg mx-auto">
+		<div class="max-w-lg mx-auto p-5 md:p-12">
 			<h3>
 				Thank you for signing this petition.
 			</h3>
@@ -40,7 +40,7 @@
 		<div class="prose prose-md w-full md:w-1/2 border-r p-5 md:p-12">
 			{{ frappe.utils.md_to_html(settings.sign_the_petition_intro) }}
 		</div>
-		<div class="p-5 md:p-12 w-full md:w-1/2">
+		<div class="p-5 md:p-12 w-full md:w-1/2 mb-5 md:mb-0">
 			<form name="petition-form" class="max-w-lg" method="POST" encType="multipart/form-data" class="p-12">
 				<label class="block">
 					<span class="text-white">Full Name</span>
