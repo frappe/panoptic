@@ -25,6 +25,8 @@ class FRT(WebsiteGenerator):
 		context.frts = frts_in_district
 		context.news_links = False
 		context.other_links = False
+		context.case_studies = self.get_linked_case_studies()
+
 		for link in self.links:
 			if link.type == "News Article":
 				context.news_links = True
@@ -36,5 +38,15 @@ class FRT(WebsiteGenerator):
 				break
 
 		context.state_route = frappe.get_value("State", self.state, 'route')
+
+	def get_linked_case_studies(self):
+		all_case_studies = []
+		studies = frappe.get_all("Case Study FRT Link", fields=["parent"], filters={'frt': self.name}, pluck="parent")
+		for study in studies:
+			study_doc = frappe.get_doc("Blog", study)
+			if study_doc.published and study_doc.category == "Case Study":
+				all_case_studies.append(study_doc)
+
+		return all_case_studies
 
 

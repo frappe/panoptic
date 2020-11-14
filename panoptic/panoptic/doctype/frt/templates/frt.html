@@ -1,13 +1,27 @@
 {% extends "templates/panoptic_base.html" %}
 
 {% block content %}
-<section class="container bg-panoptic-blue-500 border-l border-r border-b p-8 md:p-12">
-
-	<h1>{{ authority }}</h1>
-	<p class="text-teal-blue-300">Last updated on {{ frappe.format_date(modified) }}</p>
-	<p class="text-teal-blue-300">{{ name }}</p>
-	<div class="flex flex-wrap mx-auto">
-		<div class="w-full md:w-1/3 pr-12 mt-8">
+<section class="container border-b">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": authority,
+			"subtitle": "{0}, Last updated on {1}".format(name, frappe.format_date(modified))
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+	<!-- <div class="border-l border-r bg-panoptic-blue-500">
+		{% if amount_spent %}
+		<div class="px-4 md:px-8 py-5 border-l md:border-l-0 border-b">
+			<p class="uppercase font-semibold tracking-wider text-sm text-orange-500">Amount Spent</p>
+			<p class="text-5xl font-bold text-white">{{ frappe.utils.fmt_money(amount_spent, 0, "INR") }}</p>
+		</div>
+		{% endif %}
+	</div> -->
+	<div class="flex flex-wrap mx-auto bg-panoptic-blue-500 border-l border-r p-5 md:p-12">
+		<div class="w-full md:w-1/3 pr-12">
 			<h3 class="text-orange-500">Overview</h3>
 			<div class="mt-4">
 				<div class="mb-2">
@@ -37,7 +51,7 @@
 			</div>
 		</div>
 		{% if rti|length or legal_basis|length or frt_legal_basis|length or linked|length %}
-		<div class="w-full md:w-1/3 pr-12">
+		<div class="w-full md:w-1/3 pr-12 -mt-8">
 			{% if rti|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Right to Information</h3>
@@ -45,6 +59,18 @@
 					{% for application in rti %}
 					<div class="mb-2">
 						<a class="underline" href="/{{ application.route }}">{{ application.title }}</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+			{% if case_studies|length %}
+			<div class="mt-8">
+				<h3 class="text-orange-500">Case Studies</h3>
+				<div class="mt-4">
+					{% for study in case_studies %}
+					<div class="mb-2">
+						<a class="underline" href="/{{ study.route }}">{{ study.title }}</a>
 					</div>
 					{% endfor %}
 				</div>
@@ -87,7 +113,7 @@
 		</div>
 		{% endif %}
 		{% if links|length or government_link %}
-		<div class="w-full md:w-1/3 pr-12">
+		<div class="w-full md:w-1/3 pr-12 -mt-8">
 			{% if government_link and government_link_title %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Government Link</h3>
