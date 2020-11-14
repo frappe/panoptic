@@ -3,7 +3,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
+import frappe
 from frappe.website.website_generator import WebsiteGenerator
 
 class Blog(WebsiteGenerator):
@@ -17,3 +17,5 @@ class Blog(WebsiteGenerator):
 			"image": self.meta_image or "/assets/panoptic/images/meta/case-study.png",
 			"og:type": "article"
 		}
+
+		context.site_url = frappe.utils.get_host_name_from_request()
