@@ -1,0 +1,44 @@
+@font-face {
+	font-family: "iconmoon";
+	src: url("/assets/panoptic/fonts/iconmoon.eot?fpc61t");
+	src: url("/assets/panoptic/fonts/iconmoon.eot?fpc61t#iefix")
+			format("embedded-opentype"),
+		url("/assets/panoptic/fonts/iconmoon.ttf?fpc61t") format("truetype"),
+		url("/assets/panoptic/fonts/iconmoon.woff?fpc61t") format("woff"),
+		url("/assets/panoptic/fonts/iconmoon.svg?fpc61t#icon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "iconmoon" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter:before {
+	content: "\f099";
+}
+.icon-facebook:before {
+	content: "\f09a";
+}
+.icon-facebook-f:before {
+	content: "\f09a";
+}
+.icon-envelope:before {
+	content: "\f0e0";
+}
+.icon-linkedin:before {
+	content: "\f0e1";
+}
