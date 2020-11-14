@@ -1,20 +1,11 @@
 <nav class="items-center bg-teal-blue-500 flex-wrap border container">
 	<div class="flex">
-		<a href="/" class="inline-flex items-center border-r py-5 px-5 md:px-8">
+		<a href="/" class="w-1/5 flex items-center border-r py-5 px-5 md:px-8">
 			<img class="mr-0 md:mr-8 h-5 md:h-12" src="/assets/panoptic/images/panoptic.svg">
 			<div class="hidden md:block">Panoptic<br>Tracker</div>
 		</a>
-		<button
-			class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
-			data-target="#navigation">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-			</svg>
-		</button>
-		<div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto text-orange-500 font-medium"
-			id="navigation">
-			<div
-				class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
+		<div class="top-navbar w-4/5 justify-end flex text-orange-500 font-medium" id="navigation">
+			<div class="hidden md:flex flex-row self-center items-start">
 				<a href="/" class="nav-link {{ 'active' if pathname=='index' }}">
 					<span>Tracker</span>
 				</a>
@@ -34,18 +25,56 @@
 					<span>Donate</span>
 				</a>
 			</div>
+			<div class="md:hidden flex items-center p-2" onclick="toggleMenu()">
+				<svg id="menu-open" xmlns="http://www.w3.org/2000/svg" fill="none" class="h-8 w-8" viewBox="0 0 24 24"
+					stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+				</svg>
+				<svg id="menu-close" xmlns="http://www.w3.org/2000/svg" fill="none" class="h-8 w-8 hidden"
+					viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
 		</div>
+	</div>
+	<div class="hidden md:hidden flex flex-col border-t p-5" id="mobile-menu">
+		<a href="/" class="nav-link px-0 {{ 'active' if pathname=='index' }}">
+			<span>Tracker</span>
+		</a>
+		<a href="/report-frt" class="nav-link px-0 {{ 'active' if pathname=='report-frt' }}">
+			<span>Report an FRT System</span>
+		</a>
+		<a href="/sign-the-petition" class="nav-link px-0 {{ 'active' if pathname=='sign-the-petition' }}">
+			<span>Sign the Petition</span>
+		</a>
+		<a href="/column" class="nav-link px-0 {{ 'active' if pathname=='column' }}">
+			<span>Panoptic Column</span>
+		</a>
+		<a href="/right-to-information" class="nav-link px-0 {{ 'active' if pathname=='right-to-information' }}">
+			<span>RTIs</span>
+		</a>
+		<a href="/donate" class="nav-link px-0 {{ 'active' if pathname=='donate' }}">
+			<span>Donate</span>
+		</a>
 	</div>
 </nav>
 <script>
-	$(document).ready(function () {
-		$(".nav-toggler").each(function (_, navToggler) {
-			var target = $(navToggler).data("target");
-			$(navToggler).on("click", function () {
-				$(target).animate({
-					height: "toggle"
-				});
-			});
-		});
-	});
+	let closed = true;
+	const open = document.getElementById('menu-open');
+	const close = document.getElementById('menu-close');
+	const menu = document.getElementById('mobile-menu');
+
+	function toggleMenu() {
+		if (closed) {
+			open.classList.add('hidden');
+			menu.classList.remove('hidden');
+			close.classList.remove('hidden');
+			closed = false;
+		} else {
+			open.classList.remove('hidden');
+			menu.classList.add('hidden');
+			close.classList.add('hidden');
+			closed = true;
+		}
+	}
 </script>
