@@ -70,6 +70,7 @@
 			</div>
 		</div>
 		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
+			{% if frts|length %}
 			{{ web_block(
 				"Stats Column",
 				values={
@@ -95,9 +96,37 @@
 					Hover over the states to dig deeper.
 				</div>
 			</div>
+			{% else %}
+			<div class="p-5 md:p-8">
+				<h3>We're still digging</h3>
+				<p class="max-w-lg mt-3">
+					We don't have any records for facial recognition systems in {{ state_name }} yet.
+				</p>
+				<p class="max-w-lg mt-3">
+					We are actively working to expand our repository of information we have on facial recognition in
+					India.
+					We shall keep posting more case studies and updates, follow us on social media to stay up to date.
+				</p>
+				<p class="max-w-lg mt-3">
+					If you have some information about an FRT system around you that you wish to share with us, feel
+					free to
+					get in
+					touch.
+				</p>
+				<div class="mt-8 inline-flex flex-col md:flex md:flex-row">
+					<a href="/report-frt" class="px-4 mr-4 py-3 hover:bg-orange-600 bg-orange-500 rounded-sm">Report an
+						FRT</button>
+					</a>
+					<a href="/" class="mt-3 md:mt-0 px-4 py-3 hover:bg-teal-blue-800 bg-teal-blue-700 rounded-sm">Back
+						to Home</button>
+					</a>
+				</div>
+			</div>
+			{% endif %}
 		</div>
 	</div>
 </section>
+{% if frts|length %}
 <section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
 	<div class="bg-panoptic-blue-500 border-b w-full font-bold px-8 py-5">
 		List of FRTS installed in the state:
@@ -113,4 +142,5 @@
 	</a>
 	{% endfor %}
 </section>
+{% endif %}
 {% endblock %}
