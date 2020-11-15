@@ -48,5 +48,3 @@ class FRT(WebsiteGenerator):
 				all_case_studies.append(study_doc)
 
 		return all_case_studies
-
-
