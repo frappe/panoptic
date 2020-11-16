@@ -26,6 +26,7 @@ class FRT(WebsiteGenerator):
 		context.news_links = False
 		context.other_links = False
 		context.case_studies = self.get_linked_case_studies()
+		context.rti_list = self.get_all_rtis()
 
 		for link in self.links:
 			if link.type == "News Article":
@@ -48,3 +49,12 @@ class FRT(WebsiteGenerator):
 				all_case_studies.append(study_doc)
 
 		return all_case_studies
+
+	def get_all_rtis(self):
+		all_rtis = []
+		for rti in self.rti:
+			frappe.db.get_value('RTI', rti.rti, 'state') != "Draft":
+			all_rtis.append(rti)
+
+		return all_rtis
+
