@@ -7,6 +7,7 @@ import frappe
 from frappe.website.website_generator import WebsiteGenerator
 
 from panoptic.panoptic.api import get_state_route_map, get_state_wise_frt
+from panoptic.utils import shorten_number
 
 class State(WebsiteGenerator):
 
@@ -26,7 +27,7 @@ class State(WebsiteGenerator):
 
 		context.total_frt = frappe.db.count("FRT", {"state": self.name, 'published': 1}) or 0
 		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, 'published': 1, "status": "In Utilization"}) or 0
-		context.total_cost = sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name, 'published': 1 }, pluck="amount_spent"))
+		context.total_cost = shorten_number(sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name, 'published': 1 }, pluck="amount_spent")))
 
 		context.state_wise_frt = get_state_wise_frt()
 		context.state_name_routes = get_state_route_map(field="state_name")
