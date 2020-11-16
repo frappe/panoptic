@@ -54,7 +54,7 @@ class FRT(WebsiteGenerator):
 		all_rtis = []
 		for rti in self.rti:
 			if frappe.db.get_value('RTI', rti.rti, 'state') != "Draft":
-			all_rtis.append(rti)
+				all_rtis.append(rti)
 
 		return all_rtis
 
