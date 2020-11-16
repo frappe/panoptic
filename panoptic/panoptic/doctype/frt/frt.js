@@ -12,6 +12,14 @@ frappe.ui.form.on('FRT', {
 				}
 			});
 		}
+
+		frm.set_query("parent_frt", function () {
+			return {
+				filters: {
+					is_group: 1,
+				}
+			}
+		});
 	},
 
 	state: function (frm) {

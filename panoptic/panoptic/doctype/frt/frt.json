@@ -12,6 +12,8 @@
   "column_break_3",
   "route",
   "published",
+  "is_group",
+  "parent_frt",
   "implementation_section",
   "state",
   "district",
@@ -37,7 +39,10 @@
   "financials_section",
   "amount_spent",
   "section_break_27",
-  "notes"
+  "notes",
+  "lft",
+  "rgt",
+  "old_parent"
  ],
  "fields": [
   {
@@ -225,16 +230,53 @@
    "fieldname": "financials_section",
    "fieldtype": "Section Break",
    "label": "Financials"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "FRT"
+  },
+  {
+   "fieldname": "parent_frt",
+   "fieldtype": "Link",
+   "label": "Parent FRT",
+   "options": "FRT"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_tree": 1,
  "links": [],
- "modified": "2020-10-31 18:10:19.281953",
+ "modified": "2020-11-16 11:33:14.254868",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "FRT",
  "name_case": "UPPER CASE",
+ "nsm_parent_field": "parent_frt",
  "owner": "Administrator",
  "permissions": [
   {
