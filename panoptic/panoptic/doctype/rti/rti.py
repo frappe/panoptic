@@ -17,7 +17,7 @@ class RTI(WebsiteGenerator):
 
 	def get_context(self, context):
 		context.metatags = {
-			"name": "Case Study: {0}".format(self.title),
+			"name": "RTI: {0}".format(self.title),
 			"description": "RTI filed to {0}".format(self.authority),
 			"image": "/assets/panoptic/images/meta/rti.png",
 			"og:type": "article"

@@ -56,7 +56,11 @@
 	) }}
 	<div class="flex flex-wrap">
 		<div class="w-full md:w-2/3 border-r border-l border-b md:border-b-0">
-			<div id="chartdiv" class="h-full block p-5 md:p-12" style="min-height: 400px;"></div>
+			<!-- <div class="p-2 text-right">
+				<a class="text-orange-500 hover:underline" href="/central">View Central Systems</a>
+			</div> -->
+			<div id="chartdiv" class="h-full block p-5 md:p-12 -mb-12" style="min-height: 400px;">
+			</div>
 			<div id="state-list" class="flex flex-wrap hidden">
 				{% for state, route in state_name_routes.items() %}
 				<a href="/{{route}}" class="hover:bg-teal-blue-600 w-full md:w-1/3 flex items-center border-r border-b">
@@ -69,6 +73,10 @@
 			<!-- <img style="max-height: 600px;" src="/assets/panoptic/images/demo-map.svg"> -->
 		</div>
 		<div class="w-full md:w-1/3 border-r flex flex-col justify-between">
+			<a href="/central"
+				class="w-full block h-100 px-8 py-3 text-centre text-orange-500 font-bold hover:bg-teal-blue-600 border-l md:border-l-0 border-b py-5">
+					View Central Level Projects
+			</a>
 			{{ web_block(
 				"Stats Column",
 				values={

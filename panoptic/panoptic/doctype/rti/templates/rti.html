@@ -22,9 +22,11 @@
 				<div class="mt-2">
 					RTI Status: <b>{{ status }}</b>
 				</div>
+				{% if rti_number %}
 				<div class="mt-2">
 					RTI Number: <b>{{ rti_number }}</b>
 				</div>
+				{% endif %}
 				<div class="mt-2">
 					RTI Filed on: <b>{{ frappe.format_date(filed_on) }}</b>
 				</div>
