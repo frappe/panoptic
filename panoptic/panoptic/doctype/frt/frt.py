@@ -21,12 +21,21 @@ class FRT(WebsiteGenerator):
 	def get_context(self, context):
 		context.no_cache = 1
 		fields = ["name", "authority", "district_name", "technology_provider", "route"]
-		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district, "name": ['!=', self.name]}, or_filters={"state": self.state}, limit=3)
+		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district, "name": ['!=', self.name], "published": 1}, or_filters={"state": self.state}, limit=3)
 		context.frts = frts_in_district
 		context.news_links = False
 		context.other_links = False
 		context.case_studies = self.get_linked_case_studies()
 		context.rti_list = self.get_all_rtis()
+
+		context.child_frts = []
+		context.parent = None
+
+		if self.is_group:
+			context.child_frts = frappe.get_all("FRT", filters={"published": 1, "parent_frt": self.name}, fields=['name', 'route', 'authority'])
+
+		if self.parent_frt:
+			context.parent = frappe.get_doc("FRT", self.parent_frt)
 
 		for link in self.links:
 			if link.type == "News Article":

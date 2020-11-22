@@ -48,7 +48,24 @@
 				<div class="mb-2">
 					Prescribed Standards: <b>{{ prescribed_technical_standards or "Not Available" }}</b>
 				</div>
+				{%- if parent_frt and parent and parent.published -%}
+				<div class="mb-2">
+					Parent Project: <a href="/{{ parent.route }}" class="underline"><b>{{ parent.name }}</b></a>
+				</div>
+				{%- endif -%}
 			</div>
+			{% if is_group and child_frts|length %}
+			<div class="mt-8">
+				<h3 class="text-orange-500">FRTs Under this Project</h3>
+				<div class="mt-4">
+					{% for frt in child_frts %}
+					<div class="mb-2">
+						<a class="underline" href="/{{ frt.route }}">{{ frt.name }}, {{ frt.authority }}</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
 		</div>
 		{% if rti|length or legal_basis|length or frt_legal_basis|length or linked|length %}
 		<div class="w-full md:w-1/3 pr-12 -mt-8">
