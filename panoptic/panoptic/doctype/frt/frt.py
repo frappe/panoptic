@@ -37,6 +37,12 @@ class FRT(WebsiteGenerator):
 		if self.parent_frt:
 			context.parent = frappe.get_doc("FRT", self.parent_frt)
 
+		context.subtitle = "{0}, Last updated on {1}".format(self.name, frappe.utils.format_date(self.modified))
+		if self.tender_publish_date:
+			tender = frappe.utils.format_date(self.tender_publish_date)
+			mod = frappe.utils.format_date(self.modified)
+			context.subtitle = "Tender published on {0}. <br>Data last updated on {1}".format(tender, mod)
+
 		for link in self.links:
 			if link.type == "News Article":
 				context.news_links = True
@@ -62,7 +68,7 @@ class FRT(WebsiteGenerator):
 	def get_all_rtis(self):
 		all_rtis = []
 		for rti in self.rti:
-			if frappe.db.get_value('RTI', rti.rti, 'state') != "Draft":
+			if frappe.db.get_value('RTI', rti.rti, 'status') != "Draft":
 				all_rtis.append(rti)
 
 		return all_rtis
