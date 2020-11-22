@@ -37,8 +37,13 @@
 				Now</a>
 		</div>
 		{% else %}
-		<div class="prose prose-md w-full md:w-1/2 border-r p-5 md:p-12">
-			{{ frappe.utils.md_to_html(settings.sign_the_petition_intro) }}
+		<div class="w-full md:w-1/2 border-r p-5 md:p-12">
+			<div class="prose prose-md">
+				{{ frappe.utils.md_to_html(settings.sign_the_petition_intro) }}
+			</div>
+			<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-teal-blue-700 hover:bg-teal-blue-800"
+				href="/petition">Read
+				the Full Petition</a>
 		</div>
 		<div class="p-5 md:p-12 w-full md:w-1/2 mb-5 md:mb-0">
 			<form name="petition-form" class="max-w-lg" method="POST" encType="multipart/form-data" class="p-12">
@@ -46,32 +51,31 @@
 					<span class="text-white">Full Name</span>
 					<input name="full_name"
 						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-						placeholder="Your Full Name">
+						placeholder="Sarah Connor">
 				</label>
 
 				<label class="block mt-6">
 					<span class="text-white">Your Email Address</span>
 					<input name="email"
 						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full" required
-						placeholder="jane@example.com">
+						placeholder="sarah@skynet.com">
 				</label>
 
 				<label class="block mt-6">
 					<span class="text-white">Organization</span>
 					<input name="organization"
 						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-						placeholder="Acme Corp">
+						placeholder="Cyberdyne Systems">
 				</label>
 
 				<label class="block mt-6">
 					<span class="text-white">Designation</span>
 					<input name="designation"
 						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
-						placeholder="Engineer">
+						placeholder="Termintor">
 				</label>
 
 				<label class="mt-6 hidden">
-					<span class="text-white">Designation</span>
 					<input id="csrf_input_data" name="csrf_token" class="form-input" value="">
 				</label>
 

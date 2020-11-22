@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block script %}
+{%- if not is_central -%}
 <script>
 	window.state_wise_frt = {{ state_wise_frt }};
 	window.state_routes = {{ state_routes }};
@@ -41,6 +42,7 @@
 <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 <script src="/assets/panoptic/js/india_map.js"></script>
+{%- endif -%}
 {% endblock %}
 
 {% block content %}
@@ -48,13 +50,13 @@
 	{{ web_block(
 		"Title Section",
 		values={
-			"title": "<span class='text-white'>FRT Systems in</span> {0}".format(doc.state_name),
-			"button_label": "View States List",
-			"button_id": "view-states-list",
+			"title": section_title,
+			"button_label": button_label,
+			"button_id": button_id,
 		},
-		add_container=0,
-		add_top_padding=0,
-		add_bottom_padding=0,
+	add_container=0,
+	add_top_padding=0,
+	add_bottom_padding=0,
 	) }}
 	<div class="flex flex-wrap">
 		<div class="w-full md:w-2/3 border-r border-l border-b md:border-b-0">
@@ -77,7 +79,7 @@
 					"stats": {
 						"FRT Systems Installed": total_frt,
 						"In Active Utilization": total_frt_in_use,
-						"Financial Outlay": total_cost
+						"Total Financial Outlay": total_cost
 					}
 				},
 				add_container=0,
@@ -128,22 +130,27 @@
 </section>
 {% if frts|length %}
 <section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
-	<div class="bg-panoptic-blue-500 border-b w-full font-bold px-8 py-5">
-		List of FRTS installed in the state:
+	<div class="bg-panoptic-blue-500 border-b w-full px-8 py-5 flex justify-between">
+		<div class="font-bold">{{ frt_list_title }}</div>
+		<p class="text-aqua-blue-500">Click on the card to learn more</a>
 	</div>
 	{% for frt in frts %}
-	<a href="{{ frt.route }}" class="w-full md:w-1/3 lg:w-1/4 p-8 border-r border-b hover:bg-teal-blue-600">
+	<a href="{{ frt.route }}"
+		class="w-full md:w-1/3 lg:w-1/3 p-8 border-r border-b hover:bg-teal-blue-600 hover:text-orange-500">
 		<h2>{{ frt.authority }}</h2>
-		<div class="mt-3 mb-3">
-			{%- if frt.technology_provider -%}
-			<p>{{ frt.technology_provider }}</p>
+		<div class="mt-3 mb-3 text-white">
+			<!-- {%- if frt.district_name -%}
+			<p><span class="text-teal-blue-300">District:</span> {{ frt.district_name }}</p>
+			{%- endif -%} -->
+
+			{%- if frt.status -%}
+			<p><span class="text-teal-blue-300">Status:</span> {{ frt.status }}</p>
 			{%- endif -%}
 
-			{%- if frt.district_name -%}
-			<p>{{ frt.district_name }}</p>
+			{%- if frt.purpose -%}
+			<p><span class="text-teal-blue-300">Purpose:</span> {{ frt.purpose }}</p>
 			{%- endif -%}
 
-			<p>ID: {{ frt.name }}</p>
 		</div>
 	</a>
 	{% endfor %}

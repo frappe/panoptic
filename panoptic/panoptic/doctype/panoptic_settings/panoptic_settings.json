@@ -10,6 +10,7 @@
   "instagram",
   "website_copy_section",
   "privacy_policy",
+  "full_petition",
   "report_an_frt_intro",
   "sign_the_petition_intro",
   "donate_pitch"
@@ -61,12 +62,17 @@
    "in_list_view": 1,
    "label": "Donate Pitch",
    "reqd": 1
+  },
+  {
+   "fieldname": "full_petition",
+   "fieldtype": "Markdown Editor",
+   "label": "Full Petition"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-11-12 14:11:53.464981",
+ "modified": "2020-11-22 14:39:54.187985",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic Settings",

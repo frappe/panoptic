@@ -2,6 +2,7 @@ import frappe
 
 def update_website_context(context):
 	context.settings = frappe.get_doc("Panoptic Settings")
+	context.site_url = frappe.utils.get_host_name_from_request()
 
 def get_state_route_map(field="state_id"):
 	states = frappe.get_all("State", fields={field, "route"})

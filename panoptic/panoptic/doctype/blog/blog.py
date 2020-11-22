@@ -17,5 +17,3 @@ class Blog(WebsiteGenerator):
 			"image": self.meta_image or "/assets/panoptic/images/meta/case-study.png",
 			"og:type": "article"
 		}
-
-		context.site_url = frappe.utils.get_host_name_from_request()

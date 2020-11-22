@@ -25,6 +25,19 @@ class State(WebsiteGenerator):
 		context.no_cache = 1
 		context.frts = self.get_all_frts(filters={ "state": self.name })
 
+		if self.name == "Central":
+			context.is_central = True
+			context.section_title = "Central Level FRT Systems"
+			context.frt_list_title = "List of Central FRTs"
+			context.button_label = None
+			context.button_id = None
+		else:
+			context.is_central = False
+			context.section_title = "<span class='text-white'>FRT Systems in</span> {0}".format(self.state_name)
+			context.frt_list_title = "List of FRTS installed in the state"
+			context.button_label = "View States List"
+			context.button_id = "view-states-list"
+
 		context.total_frt = frappe.db.count("FRT", {"state": self.name, 'published': 1}) or 0
 		context.total_frt_in_use = frappe.db.count("FRT", {"state": self.name, 'published': 1, "status": "In Utilization"}) or 0
 		context.total_cost = shorten_number(sum(frappe.db.get_all("FRT", fields=["amount_spent"], filters={ "state": self.name, 'published': 1 }, pluck="amount_spent")))
@@ -41,7 +54,7 @@ class State(WebsiteGenerator):
 
 	def get_all_frts(self, filters={}, fields=None):
 		if not fields:
-			fields = ["name", "authority", "district_name", "technology_provider", "route"]
+			fields = ["name", "authority", "district_name", "purpose", "route", "status"]
 
 		filters.update({
 			"published": 1

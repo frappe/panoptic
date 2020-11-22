@@ -1,0 +1,22 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Petition{% endblock %}
+
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="container border-b">
+	<div class="border-r border-l p-12">
+		<div class="prose prose-md">
+			<h1 class="text-orange-500">
+				We want a ban on Facial Recognition Technology
+			</h1>
+			{{ frappe.utils.md_to_html(settings.full_petition) }}
+		</div>
+		<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-orange-500" href="/sign-the-petition">Sign the
+			Petition</a>
+	</div>
+</section>
+{% endblock %}

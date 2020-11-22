@@ -12,13 +12,18 @@
 		<div class="max-w-lg">
 			<div class="prose">
 				<h1 class="text-orange-500">
-					Donate to help our cause
+					We will Watch the Watchmen
 				</h1>
 				{{ frappe.utils.md_to_html(settings.donate_pitch) }}
 			</div>
 			<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-orange-500" target="_blank"
 				rel="noopener noreferrer" href="https://internetfreedom.in/donate">Donate
 				Now</a>
+			<div class="mt-4 text-teal-blue-300">
+				Donated already? <a class="hover:underline" target="_blank" rel="noopener noreferrer"
+					href="https://twitter.com/intent/tweet?text=I%20just%20donated%20to%20%40internetfreedom%20for%20%23ProjectPanoptic%20and%20you%20should%20as%20well.%0ATogether%20we%20can%20fight%20the%20growing%20threat%20of%20mass%20surveillance.&url={{ site_url }}">Ask
+					your friends to donate as well.</a>
+			</div>
 		</div>
 	</div>
 </section>

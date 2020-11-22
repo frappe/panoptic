@@ -67,7 +67,7 @@
 			</div>
 			{% endif %}
 		</div>
-		{% if rti|length or legal_basis|length or frt_legal_basis|length or linked|length %}
+		{% if rti|length or case_studies|length or legal_basis|length or frt_legal_basis|length or linked|length %}
 		<div class="w-full md:w-1/3 pr-12 -mt-8">
 			{% if rti|length %}
 			<div class="mt-8">
@@ -129,7 +129,6 @@
 			{% endif %}
 		</div>
 		{% endif %}
-		{% if links|length or government_link %}
 		<div class="w-full md:w-1/3 pr-12 -mt-8">
 			{% if government_link and government_link_title %}
 			<div class="mt-8">
@@ -148,29 +147,55 @@
 					{% for link in links %}
 					{% if link.type == "News Article" %}
 					<div class="mb-2">
-						<a class="underline" href="{{ link.link }}">{{ link.title }}</a>
+						<a target="_blank" rel="noopener noreferrer" class="underline"
+							href="{{ link.link }}">{{ link.title }}</a>
 					</div>
 					{% endif %}
 					{% endfor %}
 				</div>
 			</div>
 			{% endif %}
-			{% if other_links %}
+			{% set attachment = frappe.db.get_value("FRT Technology Provider", technology_provider, "attachment") %}
+			{% if other_links or attachment %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Other Links</h3>
 				<div class="mt-4">
+					{% if attachment %}
+					<div class="mb-2">
+						<a target="_blank" rel="noopener noreferrer" class="underline"
+							href="{{ attachment }}">{{ technology_provider }}</a>
+					</div>
+					{% endif %}
 					{% for link in links %}
 					{% if link.type != "News Article" %}
 					<div class="mb-2">
-						<a class="underline" href="{{ link.link }}">{{ link.title }}</a>
+						<a target="_blank" rel="noopener noreferrer" class="underline"
+							href="{{ link.link }}">{{ link.title }}</a>
 					</div>
 					{% endif %}
 					{% endfor %}
 				</div>
 			</div>
 			{% endif %}
+
+			<div class="mt-8">
+				<h3 class="text-orange-500">Share This FRT</h3>
+				<div class="mt-4">
+					<a href="https://twitter.com/intent/tweet?text=Know more about the Facial Recognition system at {{ title }} %23ProjectPanoptic&url={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 fa fa-twitter" target="_blank"></a>
+
+					<a href="https://www.facebook.com/sharer.php?u={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-facebook" target="_blank"></a>
+
+					<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-linkedin" target="_blank"></a>
+
+					<a href="mailto:?subject=ProjectPanoptic {{ title }}&body={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-envelope" target="_blank"></a>
+				</div>
+			</div>
 		</div>
-		{% endif %}
+
 	</div>
 	</div>
 </section>
@@ -181,12 +206,22 @@
 		<a href="/{{ state_route }}" class="text-aqua-blue-500">View All in {{ state }}</a>
 	</div>
 	{% for frt in frts[:3] %}
-	<a href="/{{ frt.route }}" class="w-full md:w-1/3 p-8 border-r border-b hover:bg-teal-blue-600">
+	<a href="/{{ frt.route }}"
+		class="w-full md:w-1/3 lg:w-1/3 p-8 border-r border-b hover:bg-teal-blue-600 hover:text-orange-500">
 		<h2>{{ frt.authority }}</h2>
-		<div class="mt-3 mb-3">
-			<p>{{ frt.technology_provider }}</p>
-			<p>{{ frt.district_name }}</p>
-			<p>ID: {{ frt.name }}</p>
+		<div class="mt-3 mb-3 text-white">
+			<!-- {%- if frt.district_name -%}
+			<p><span class="text-teal-blue-300">District:</span> {{ frt.district_name }}</p>
+			{%- endif -%} -->
+
+			{%- if frt.status -%}
+			<p><span class="text-teal-blue-300">Status:</span> {{ frt.status }}</p>
+			{%- endif -%}
+
+			{%- if frt.purpose -%}
+			<p><span class="text-teal-blue-300">Purpose:</span> {{ frt.purpose }}</p>
+			{%- endif -%}
+
 		</div>
 	</a>
 	{% endfor %}

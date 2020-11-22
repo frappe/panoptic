@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <section class="container border-b border-r border-l flex">
 	<article class="text-white border-r w-full md:w-2/3">
 		<div class="p-5 md:p-12">
@@ -32,7 +30,7 @@
 			<div class="w-full md:w-1/2 md:text-right mt-6 md:mt-0">
 				<span class="text-teal-blue-300">Share this {{ category }}</span>
 				<div class="mt-2 md:mt-4">
-					<a href="https://twitter.com/intent/tweet?text={{ title }}%20%23Panoptic%20%23PanopticColumn&url={{ site_url }}/{{ route }}"
+					<a href="https://twitter.com/intent/tweet?text={{ title }}%20%23ProjectPanoptic%20%23PanopticColumn&url={{ site_url }}/{{ route }}"
 						class="text-teal-blue-200 ml-2 fa fa-twitter" target="_blank"></a>
 
 					<a href="https://www.facebook.com/sharer.php?u={{ site_url }}/{{ route }}"
@@ -41,7 +39,7 @@
 					<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site_url }}/{{ route }}"
 						class="text-teal-blue-200 ml-2 fa fa-linkedin" target="_blank"></a>
 
-					<a href="mailto:?subject=Panoptic {{ category }}: {{ title }}&body={{ site_url }}/{{ route }}"
+					<a href="mailto:?subject=Panoptic RTI filed to {{ authority }}&body={{ site_url }}/{{ route }}"
 						class="text-teal-blue-200 ml-2 fa fa-envelope" target="_blank"></a>
 				</div>
 			</div>

@@ -20,7 +20,7 @@ class FRT(WebsiteGenerator):
 
 	def get_context(self, context):
 		context.no_cache = 1
-		fields = ["name", "authority", "district_name", "technology_provider", "route"]
+		fields = ["name", "authority", "purpose", "status", "route"]
 		frts_in_district = frappe.get_all("FRT", fields=fields, filters={"district": self.district, "name": ['!=', self.name], "published": 1}, or_filters={"state": self.state}, limit=3)
 		context.frts = frts_in_district
 		context.news_links = False

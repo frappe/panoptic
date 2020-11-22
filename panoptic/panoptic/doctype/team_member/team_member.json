@@ -7,6 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "full_name",
+  "show_on_website",
+  "link_type",
+  "link",
   "avatar",
   "role",
   "bio"
@@ -37,12 +40,28 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Bio"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_on_website",
+   "fieldtype": "Check",
+   "label": "Show on Website"
+  },
+  {
+   "fieldname": "link_type",
+   "fieldtype": "Data",
+   "label": "Link Type"
+  },
+  {
+   "fieldname": "link",
+   "fieldtype": "Data",
+   "label": "Social Link"
   }
  ],
  "image_field": "avatar",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-31 14:29:07.770638",
+ "modified": "2020-11-22 13:29:27.505316",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Team Member",
