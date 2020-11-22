@@ -2,10 +2,10 @@
 	<div class="flex">
 		<a href="/" class="w-1/5 flex items-center border-r py-5 px-5 md:px-8">
 			<img class="mr-0 md:mr-8 h-5 md:h-12" src="/assets/panoptic/images/panoptic.svg">
-			<div class="hidden md:block">Panoptic<br>Tracker</div>
+			<div class="hidden lg:block">Panoptic<br>Tracker</div>
 		</a>
 		<div class="top-navbar w-4/5 justify-end flex text-orange-500 font-medium" id="navigation">
-			<div class="hidden md:flex flex-row self-center items-start">
+			<div class="hidden lg:flex flex-row self-center items-start">
 				<a href="/" class="nav-link {{ 'active' if pathname=='index' }}">
 					<span>Tracker</span>
 				</a>
@@ -21,11 +21,14 @@
 				<a href="/right-to-information" class="nav-link {{ 'active' if pathname=='right-to-information' }}">
 					<span>RTIs</span>
 				</a>
+				<a href="/about" class="nav-link {{ 'active' if pathname=='about' }}">
+					<span>About</span>
+				</a>
 				<a href="/donate" class="nav-link {{ 'active' if pathname=='donate' }}">
 					<span>Donate</span>
 				</a>
 			</div>
-			<div class="md:hidden flex items-center p-2" onclick="toggleMenu()">
+			<div class="lg:hidden flex items-center p-2" onclick="toggleMenu()">
 				<svg id="menu-open" xmlns="http://www.w3.org/2000/svg" fill="none" class="h-8 w-8" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -37,7 +40,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="hidden md:hidden flex flex-col border-t p-5" id="mobile-menu">
+	<div class="hidden lg:hidden flex flex-col border-t p-5" id="mobile-menu">
 		<a href="/" class="nav-link px-0 {{ 'active' if pathname=='index' }}">
 			<span>Tracker</span>
 		</a>

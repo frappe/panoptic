@@ -86,7 +86,7 @@
 				add_top_padding=0,
 				add_bottom_padding=0,
 			) }}
-			<div class="px-8 py-5 bg-panoptic-blue-500">
+			<div class="px-8 py-5 bg-panoptic-blue-500 hidden lg:block">
 				<h2 class="text-white">
 					Facial Recognition Systems Tracker
 				</h2>
@@ -94,7 +94,7 @@
 					Browse through our breathing database of all the FRT systems installed in India by different
 					authorities.
 				</p>
-				<div class="flex my-4 pr-12 flex items-center">
+				<div class="flex my-4 pr-12 items-center">
 					Hover over the states to dig deeper.
 				</div>
 			</div>
@@ -132,7 +132,7 @@
 <section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
 	<div class="bg-panoptic-blue-500 border-b w-full px-8 py-5 flex justify-between">
 		<div class="font-bold">{{ frt_list_title }}</div>
-		<p class="text-aqua-blue-500">Click on the card to learn more</a>
+		<p class="text-aqua-blue-500 hidden md:block">Click on the card to learn more</a>
 	</div>
 	{% for frt in frts %}
 	<a href="{{ frt.route }}"

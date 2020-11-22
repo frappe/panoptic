@@ -177,3 +177,7 @@
 		@apply text-xl font-bold;
 	}
 }
+
+[aria-labelledby="id-79-title"] {
+	display: none;
+}

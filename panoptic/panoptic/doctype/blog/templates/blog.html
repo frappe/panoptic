@@ -7,13 +7,13 @@
 {% block content %}
 <section class="container border-b border-r border-l flex">
 	<article class="text-white border-r w-full md:w-2/3">
-		<div class="p-5 md:p-12">
+		<div class="p-5 md:p-8 lg:p-12">
 			<div class="prose prose-md">
 				<h1>{{ doc.title }}</h1>
 				{{ frappe.utils.md_to_html(doc.content) }}
 			</div>
 		</div>
-		<div class="flex flex-wrap border-t p-5 md:p-12">
+		<div class="flex flex-wrap border-t p-5 md:p-8 lg:p-12">
 			<div class="w-full md:w-1/2">
 				<span class="text-teal-blue-300">Published By</span>
 				{{ web_block(

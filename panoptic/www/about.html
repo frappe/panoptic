@@ -17,7 +17,7 @@
 		add_top_padding=0,
 		add_bottom_padding=0,
 	) }}
-	<div class="border-r border-l p-5 md:p-12">
+	<div class="border-r border-l p-5 md:p-8 lg:p-12">
 		<div class="prose prose-md">
 			<h2 class="text-orange-500">
 				About Internet Freedom Foundation
@@ -42,7 +42,7 @@
 		add_bottom_padding=0,
 		) }}
 	<div class="border-r border-l">
-		<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 p-5 md:p-12 gap-5 gap-y-12">
+		<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 p-5 md:p-8 lg:p-12 gap-5 gap-y-12">
 			{% for member in team %}
 			<div class="flex flex-col text-center items-center">
 				<div class="h-32 w-32 rounded-full overflow-hidden">
@@ -71,7 +71,7 @@
 		add_top_padding=0,
 		add_bottom_padding=0,
 	) }}
-	<div class="border-r border-l p-5 md:p-12">
+	<div class="border-r border-l p-5 md:p-8 lg:p-12">
 		<div class="prose prose-md">
 			{{ frappe.utils.md_to_html(settings.donate_pitch) }}
 		</div>

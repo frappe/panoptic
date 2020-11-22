@@ -20,7 +20,7 @@
 		</div>
 		{% endif %}
 	</div> -->
-	<div class="flex flex-wrap mx-auto bg-panoptic-blue-500 border-l border-r p-5 md:p-12">
+	<div class="flex flex-wrap mx-auto bg-panoptic-blue-500 border-l border-r p-5 md:p-8 lg:p-12">
 		<div class="w-full md:w-1/3 pr-12">
 			<h3 class="text-orange-500">Overview</h3>
 			<div class="mt-4">
@@ -68,7 +68,7 @@
 			{% endif %}
 		</div>
 		{% if rti|length or case_studies|length or legal_basis|length or frt_legal_basis|length or linked|length %}
-		<div class="w-full md:w-1/3 pr-12 -mt-8">
+		<div class="w-full md:w-1/3 pr-12 md:-mt-8">
 			{% if rti|length %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Right to Information</h3>
@@ -129,7 +129,7 @@
 			{% endif %}
 		</div>
 		{% endif %}
-		<div class="w-full md:w-1/3 pr-12 -mt-8">
+		<div class="w-full md:w-1/3 pr-12 md:-mt-8">
 			{% if government_link and government_link_title %}
 			<div class="mt-8">
 				<h3 class="text-orange-500">Government Link</h3>
@@ -181,7 +181,7 @@
 			<div class="mt-8">
 				<h3 class="text-orange-500">Share This FRT</h3>
 				<div class="mt-4">
-					<a href="https://twitter.com/intent/tweet?text=Know more about the Facial Recognition system at {{ title }} %23ProjectPanoptic&url={{ site_url }}/{{ route }}"
+					<a href="https://twitter.com/intent/tweet?text=Know more about the Facial Recognition system installed by {{ title }} %23ProjectPanoptic&url={{ site_url }}/{{ route }}"
 						class="text-teal-blue-200 fa fa-twitter" target="_blank"></a>
 
 					<a href="https://www.facebook.com/sharer.php?u={{ site_url }}/{{ route }}"
