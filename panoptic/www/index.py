@@ -4,7 +4,7 @@ from panoptic.utils import shorten_number
 
 def get_context(context):
 	context.total_frt = frappe.db.count("FRT", {"published": 1})
-	context.total_frs = frappe.db.count("Facial Recognition System")
+	context.total_rtis = frappe.db.count("RTI", {"status": ["!=", "Draft"]})
 	context.state_wise_frt = get_state_wise_frt()
 	context.state_routes = get_state_route_map(field="state_id")
 	context.state_name_routes = get_state_route_map(field="state_name")
