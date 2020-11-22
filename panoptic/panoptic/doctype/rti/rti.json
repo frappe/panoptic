@@ -80,7 +80,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "RTI Status",
-   "options": "Draft\nSubmitted\nAwaiting Response\nResponse Received",
+   "options": "Draft\nFiled\nResponse Received",
    "reqd": 1
   },
   {
@@ -110,7 +110,7 @@
  ],
  "has_web_view": 1,
  "links": [],
- "modified": "2020-10-31 15:22:49.594186",
+ "modified": "2020-11-22 09:56:39.578763",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "RTI",
