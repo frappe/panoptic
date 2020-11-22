@@ -67,6 +67,21 @@
 			) }}
 		</div>
 
+		{%- if frts|length -%}
+		<div class="mb-12">
+			<h3>Linked FRTs</h3>
+			<ul class="mt-3">
+				{% for link_frt in frts %}
+				{% set frt_doc = frappe.get_doc("FRT", link_frt.frt) %}
+				<li class="mb-1">
+					<a class="hover:underline text-orange-500" href="/{{ frt_doc.route }}">
+						{{ frt_doc.authority }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{%- endif -%}
+
 		<div class="">
 			<a href="https://rti.gov.in/" target="_blank" rel="noopener noreferrer" class="hover:underline">Learn more
 				about RTI</a>

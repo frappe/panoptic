@@ -3,7 +3,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-
+import frappe
 from frappe.model.naming import make_autoname
 from frappe.website.website_generator import WebsiteGenerator
 
@@ -22,3 +22,14 @@ class RTI(WebsiteGenerator):
 			"image": "/assets/panoptic/images/meta/rti.png",
 			"og:type": "article"
 		}
+		context.frts = self.get_linked_frts()
+
+	def get_linked_frts(self):
+		all_frts = []
+		frts = frappe.get_all("FRT RTI", fields=["parent"], filters={'rti': self.name}, pluck="parent")
+		for frt in frts:
+			frt_doc = frappe.get_doc("FRT", frt)
+			if frt_doc.published:
+				all_frts.append(frt_doc)
+
+		return all_frts
