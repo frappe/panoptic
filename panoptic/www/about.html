@@ -1,0 +1,83 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - About the Project{% endblock %}
+
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="container border-b">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "About the Project",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+	<div class="border-r border-l p-5 md:p-12">
+		<div class="prose prose-md">
+			<h2 class="text-orange-500">
+				About Internet Freedom Foundation
+			</h2>
+			{{ frappe.utils.md_to_html(about.iff_intro) }}
+
+			<h2 class="text-orange-500">
+				Project Panoptic
+			</h2>
+			{{ frappe.utils.md_to_html(about.panoptic_intro) }}
+		</div>
+	</div>
+</section>
+<section class="container border-b">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "The Team",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+		) }}
+	<div class="border-r border-l">
+		<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 p-5 md:p-12 gap-5 gap-y-12">
+			{% for member in team %}
+			<div class="flex flex-col text-center items-center">
+				<div class="h-32 w-32 rounded-full overflow-hidden">
+					<img class="object-cover h-full w-full rounded" src="{{ member.avatar }}">
+				</div>
+				<h4 class="text-lg mt-2">{{ member.full_name }}</h4>
+				{%- if member.avatar -%}
+				<p>{{ member.role }}</p>
+				{% endif %}
+				{%- if member.link_type and member.link -%}
+				<a target="_blank" rel="noopener noreferrer" href="{{ member.link }}"
+					class="hover:underline text-teal-blue-300">{{ member.link_type }}</a>
+				{%-endif -%}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section class="container border-b">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "Support The Project",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+	<div class="border-r border-l p-5 md:p-12">
+		<div class="prose prose-md">
+			{{ frappe.utils.md_to_html(settings.donate_pitch) }}
+		</div>
+		<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-orange-500" target="_blank"
+			rel="noopener noreferrer" href="https://internetfreedom.in/donate">Donate
+			Now</a>
+	</div>
+</section>
+{% endblock %}

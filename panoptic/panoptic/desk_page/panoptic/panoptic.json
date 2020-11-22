@@ -28,7 +28,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Panoptic",
- "modified": "2020-11-12 14:16:22.095774",
+ "modified": "2020-11-22 19:02:52.277160",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic",
@@ -100,6 +100,12 @@
    "doc_view": "",
    "label": "Settings",
    "link_to": "Panoptic Settings",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "About Page",
+   "link_to": "About Page",
    "type": "DocType"
   }
  ]

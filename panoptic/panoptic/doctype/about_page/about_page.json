@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2020-11-22 19:02:28.176031",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "iff_intro",
+  "panoptic_intro"
+ ],
+ "fields": [
+  {
+   "fieldname": "iff_intro",
+   "fieldtype": "Markdown Editor",
+   "in_list_view": 1,
+   "label": "IFF Intro",
+   "reqd": 1
+  },
+  {
+   "fieldname": "panoptic_intro",
+   "fieldtype": "Markdown Editor",
+   "in_list_view": 1,
+   "label": "Panoptic Intro",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2020-11-22 19:02:28.176031",
+ "modified_by": "Administrator",
+ "module": "Panoptic",
+ "name": "About Page",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
