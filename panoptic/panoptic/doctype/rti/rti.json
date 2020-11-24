@@ -80,7 +80,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "RTI Status",
-   "options": "Draft\nFirst Appeal Filed\nFirst Appeal Reply Received\nCIC Appeal Filed",
+   "options": "Draft\nFiled\nReply Received\nFirst Appeal Filed\nFirst Appeal Reply Received\nCIC Appeal Filed\nCIC Appeal Reply Received",
    "reqd": 1
   },
   {
@@ -110,7 +110,7 @@
  ],
  "has_web_view": 1,
  "links": [],
- "modified": "2020-11-24 14:59:06.464130",
+ "modified": "2020-11-24 15:17:37.883757",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "RTI",
