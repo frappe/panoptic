@@ -26,7 +26,9 @@
 					title=rti.title,
 					published_date=rti.filed_on,
 					published_by=rti_filed_by,
-					description=rti.status
+					description="""
+						<span class='text-teal-blue-300'>Status:</span> {0}<br><span class='text-teal-blue-300'>Filed On:</span> {1}
+					""".format(rti.status, frappe.utils.format_date(rti.filed_on))
 				),
 				add_container=0,
 				add_top_padding=0,
