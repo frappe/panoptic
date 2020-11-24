@@ -6,10 +6,51 @@
 
 {% block content %}
 <section class="container border-b border-r border-l flex">
-	<article class="text-white border-r w-full md:w-2/3 p-5 md:p-8 lg:p-12">
-		<div class="prose prose-md">
-			<h1>{{ title }}</h1>
-			{{ frappe.utils.md_to_html(application_body) }}
+	<article class="text-white border-r w-full md:w-2/3">
+		<div class="p-5 md:p-8 lg:p-12">
+			<div class="prose prose-md">
+				<h1>{{ title }}</h1>
+				{{ frappe.utils.md_to_html(application_body) }}
+			</div>
+		</div>
+		<div class="flex flex-wrap border-t p-5 md:p-8 lg:p-12">
+			<div class="w-full md:w-1/2">
+				<div class="md:hidden">
+					<div class="mt-2 text-teal-blue-300">
+						Filed to: <b>{{ authority }}</b>
+					</div>
+					<div class="mt-2 text-teal-blue-300">
+						Status: <b>{{ status }}</b>
+					</div>
+				</div>
+				<div class="text-teal-blue-300 mt-2">Published By</div>
+				{{ web_block(
+					"Avatar",
+					values={
+						"member": published_by,
+						"mt": 4
+					},
+					add_container=0,
+					add_top_padding=0,
+					add_bottom_padding=0,
+				) }}
+			</div>
+			<div class="w-full md:w-1/2 md:text-right mt-6 md:mt-0">
+				<span class="text-teal-blue-300">Share this RTI</span>
+				<div class="mt-2 md:mt-4">
+					<a href="https://twitter.com/intent/tweet?text=RTI%20filed%20to%20{{ authority }}%20by%20%23ProjectPanoptic&url={{ site_url }}/{{ route }}"
+					class="text-teal-blue-200 fa fa-twitter" target="_blank"></a>
+
+					<a href="https://www.facebook.com/sharer.php?u={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-facebook" target="_blank"></a>
+
+					<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-linkedin" target="_blank"></a>
+
+					<a href="mailto:?subject=Panoptic {{ category }}: {{ title }}&body={{ site_url }}/{{ route }}"
+						class="text-teal-blue-200 ml-2 fa fa-envelope" target="_blank"></a>
+				</div>
+			</div>
 		</div>
 	</article>
 	<div class="p-12 hidden md:block w-full md:w-1/3 text-teal-blue-300">
