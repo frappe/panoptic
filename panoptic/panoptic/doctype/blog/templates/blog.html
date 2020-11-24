@@ -16,10 +16,11 @@
 		<div class="flex flex-wrap border-t p-5 md:p-8 lg:p-12">
 			<div class="w-full md:w-1/2">
 				<span class="text-teal-blue-300">Published By</span>
+				{% set member_doc = frappe.get_doc("Team Member", published_by) %}
 				{{ web_block(
 					"Avatar",
 					values={
-						"member": published_by,
+						"member": member_doc,
 						"mt": 2
 					},
 					add_container=0,
@@ -54,7 +55,7 @@
 			{{ web_block(
 				"Avatar",
 				values={
-					"member": published_by,
+					"member": member_doc,
 					"mt": 4
 				},
 				add_container=0,

@@ -1,11 +1,10 @@
 <div class="flex items-center mt-{{ mt or 0}} mb-{{ mb or 0 }}">
-	{% set member_doc = frappe.get_doc("Team Member", member) %}
-	<img src="{{ member_doc.avatar }}" class="h-10 w-10 mr-3 rounded-full border-2"
-		alt="{{ member_doc.full_name }}">
+	<img src="{{ member.avatar }}" class="h-10 w-10 mr-3 rounded-full border-2"
+		alt="{{ member.full_name }}">
 	<div>
-		<h4 class="text-lg text-orange-500">{{ member_doc.full_name }}</h4>
-		{% if member_doc.role %}
-		<p class="text-teal-blue-300">{{ member_doc.role[:80] }}</p>
+		<h4 class="text-lg text-orange-500">{{ member.full_name }}</h4>
+		{% if member.role %}
+		<p class="text-teal-blue-300">{{ member.role[:80] }}</p>
 		{% endif %}
 	</div>
 </div>

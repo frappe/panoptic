@@ -24,10 +24,11 @@
 					</div>
 				</div>
 				<div class="text-teal-blue-300 mt-2">Published By</div>
+				{% set member_doc = frappe.get_doc("Team Member", rti_filed_by) %}
 				{{ web_block(
 					"Avatar",
 					values={
-						"member": published_by,
+						"member": member_doc,
 						"mt": 4
 					},
 					add_container=0,
@@ -99,7 +100,7 @@
 			{{ web_block(
 				"Avatar",
 				values={
-					"member": published_by,
+					"member": member_doc,
 					"mt": 4
 				},
 				add_container=0,
