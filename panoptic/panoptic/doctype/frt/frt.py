@@ -57,7 +57,7 @@ class FRT(WebsiteGenerator):
 
 	def get_linked_case_studies(self):
 		all_case_studies = []
-		studies = frappe.get_all("Case Study FRT Link", fields=["parent"], filters={'frt': self.name}, pluck="parent")
+		studies = frappe.get_all("Case Study FRT Link", fields=["parent"], filters={'frt': self.name}, pluck="parent", distinct=True)
 		for study in studies:
 			study_doc = frappe.get_doc("Blog", study)
 			if study_doc.published and study_doc.category == "Case Study":

@@ -26,7 +26,7 @@ class RTI(WebsiteGenerator):
 
 	def get_linked_frts(self):
 		all_frts = []
-		frts = frappe.get_all("FRT RTI", fields=["parent"], filters={'rti': self.name}, pluck="parent")
+		frts = frappe.get_all("FRT RTI", fields=["parent"], filters={'rti': self.name}, pluck="parent", distinct=True)
 		for frt in frts:
 			frt_doc = frappe.get_doc("FRT", frt)
 			if frt_doc.published:
