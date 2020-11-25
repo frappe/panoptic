@@ -3,6 +3,7 @@ from panoptic.panoptic.api import get_state_route_map, get_state_wise_frt
 from panoptic.utils import shorten_number
 
 def get_context(context):
+	context.no_cache = True
 	context.total_frt = frappe.db.count("FRT", {"published": 1})
 	context.total_rtis = frappe.db.count("RTI", {"status": ["!=", "Draft"]})
 	context.state_wise_frt = get_state_wise_frt()
