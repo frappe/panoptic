@@ -1,8 +1,8 @@
 <div align="center">
-    <h1 style="background-color: #174057;">
+    <h1>
         <br>
         <a href="https://panoptic.in">
-            <img src=".github/panoptic.svg" height="50">
+            <img src=".github/panoptic.png" height="50">
         </a>
     </h1>
     <p align="center">
