@@ -2,7 +2,7 @@
     <h1>
         <br>
         <a href="https://panoptic.in">
-            <img src=".github/panoptic.png" height="50">
+            <img src=".github/panoptic.png" height="100">
         </a>
     </h1>
     <p align="center">
