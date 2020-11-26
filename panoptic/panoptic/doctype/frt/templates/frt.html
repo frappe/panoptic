@@ -31,6 +31,12 @@
 					Purpose: <b>{{ purpose }}</b>
 				</div>
 				<div class="mb-2">
+					Financial Outlay: <b>{{ frappe.utils.fmt_money(amount_spent, 0, "INR") if amount_spent else "Not Available" }}</b>
+					{% if amount_spent %}
+					<p class='text-sm text-teal-blue-300'>Based on available information</p>
+					{% endif %}
+				</div>
+				<div class="mb-2">
 					Technology Partner: <b>{{ technology_provider or "Not Available" }}</b>
 				</div>
 				<div class="mb-2">
