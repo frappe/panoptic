@@ -12,18 +12,19 @@ def get_context(context):
 
 	context.no_cache = 1
 
+	filters = [["published", "=", 1]]
+
 	if context.current_state:
 		frts = get_all_frts_in_state(context.current_state)
 		filters.append(["Case Study FRT Link", "frt", "in", frts])
 	if context.current_category:
 		filters.append(["category", "=", context.current_category])
 	
-	context.articles = get_all_articles()
+	context.articles = get_all_articles(filters)
 	context.states = get_all_states()
 
-def get_all_articles():
+def get_all_articles(filters):
 	fields = ['route', 'title', 'published_by', 'published_date', 'description', 'category']
-	filters = [["published", "=", 1]]
 
 	articles = frappe.db.get_all("Blog", fields=fields, filters=filters, order_by="published_date desc")
 
