@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>
+    <h1 style="background-color: #174057;">
         <br>
         <a href="https://panoptic.in">
             <img src=".github/panoptic.svg" height="50">
