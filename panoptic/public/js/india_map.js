@@ -38,6 +38,7 @@ window.onload = function () {
 	// Set projection
 	chart.projection = new am4maps.projections.Mercator();
 	chart.maxZoomLevel = 1;
+	chart.tapToActivate = true;
 	chart.seriesContainer.draggable = false;
 	chart.seriesContainer.wheelable = false;
 	chart.seriesContainer.resizable = false;
