@@ -114,10 +114,9 @@
 			<h3>Linked FRTs</h3>
 			<ul class="mt-3">
 				{% for link_frt in frts %}
-				{% set frt_doc = frappe.get_doc("FRT", link_frt.frt) %}
 				<li class="mb-1">
-					<a class="hover:underline text-orange-500" href="/{{ frt_doc.route }}">
-						{{ frt_doc.authority }}</a>
+					<a class="hover:underline text-orange-500" href="/{{ link_frt.route }}">
+						{{ link_frt.authority }}</a>
 				</li>
 				{% endfor %}
 			</ul>
