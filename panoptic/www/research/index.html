@@ -1,0 +1,38 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Research{% endblock %}
+
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="container border-b">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "Research",
+      "subtitle": "Articles, documents and other resources we curate during the course of our research"
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+	<div class="flex flex-wrap border-r border-l">
+		{% for link in resources %}
+			{{ web_block(
+				"Article List Item",
+				values=dict(
+					route=link.route,
+					title=link.title,
+					published_date=link.published_date,
+					description=link.description
+				),
+				add_container=0,
+				add_top_padding=0,
+				add_bottom_padding=0,
+			) }}
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}s

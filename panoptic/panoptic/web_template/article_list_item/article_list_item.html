@@ -1,11 +1,18 @@
+{% if route.startswith('http') %}
+<a href="{{ route }}" target="_blank" rel="noopener noreferrer" class="w-full p-5 md:p-8 lg:p-12 border-b">
+{% else %}
 <a href="/{{ route }}" class="w-full p-5 md:p-8 lg:p-12 border-b">
+{% endif %}
 	<div class="md:w-2/3">
 		{% if category %}
-		<span class="uppercase text-sm tracking-wide font-semibold text-teal-blue-300">{{ category }}</span>
+			<span class="uppercase text-sm tracking-wide font-semibold text-teal-blue-300">{{ category }}</span>
 		{% endif %}
 		<h2 class="text-orange-500">{{ title }}</h2>
-		<span class="mt-2 text-teal-blue-300">Published on {{ frappe.format_date(published_date) }}</span>
+		{% if published_date %}
+			<span class="mt-2 text-teal-blue-300">Published on {{ frappe.format_date(published_date) }}</span>
+		{% endif %}
 		<p class="mt-4">{{ description }}</p>
+		{% if member_doc %}
 		<div class="flex">
 			{{ web_block(
 				"Avatar",
@@ -18,5 +25,6 @@
 				add_bottom_padding=0,
 			) }}
 		</div>
+		{% endif %}
 	</div>
 </a>
