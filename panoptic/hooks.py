@@ -8,7 +8,7 @@ app_publisher = "Internet Freedom Foundation"
 app_description = "Tracking FRT Across the Country"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "panoptic@internetfreedom.in"
+app_email = "tech@internetfreedom.in"
 app_license = "MIT"
 
 # application home page (will override Website Settings)
