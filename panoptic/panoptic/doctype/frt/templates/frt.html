@@ -209,7 +209,7 @@
 <section class="container bg-teal-blue-500 border-l border-r border-b flex flex-wrap">
 	<div class="bg-panoptic-blue-500 border-b w-full px-8 py-5 flex justify-between">
 		<div class="font-bold">Other FRTs around {{ district_name }}</div>
-		<a href="/{{ state_route }}" class="text-aqua-blue-500">View All in {{ state }}</a>
+		<a href="/{{ state_route }}" class="text-aqua-blue-500 text-right">View All in {{ state }}</a>
 	</div>
 	{% for frt in frts[:3] %}
 	<a href="/{{ frt.route }}"
