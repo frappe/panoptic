@@ -1,33 +1,34 @@
 <nav class="items-center bg-teal-blue-500 flex-wrap border container">
 	<div class="flex justify-between">
-		<a href="/" class="w-1/5 flex items-center border-r py-5 px-5 md:px-8">
-			<img class="mr-0 md:mr-8 h-5 md:h-12" src="/assets/panoptic/images/panoptic.svg">
+		<a href="/" class="w-full md:w-1/5 flex items-center border-r py-5 px-5 md:px-8">
+			<img class="mr-3 md:mr-8 h-8 md:h-12" src="/assets/panoptic/images/panoptic.svg">
+			<div class="lg:hidden">Panoptic Tracker</div>
 			<div class="hidden lg:block">Panoptic<br>Tracker</div>
 		</a>
-		<div class="top-navbar w-4/5 justify-end flex text-orange-500 font-medium" id="navigation">
+		<div class="top-navbar md:w-4/5 justify-end flex text-orange-500 font-medium px-5" id="navigation">
 			<div class="hidden lg:flex flex-row self-center items-start">
-				<a href="/" class="nav-link {{ 'active' if pathname=='index' }}">
+				<a href="/" class="nav-link {{ 'active' if pathname=='index' else '' }}">
 					<span>Tracker</span>
 				</a>
-				<a href="/report-frt" class="nav-link {{ 'active' if pathname=='report-frt' }}">
+				<a href="/report-frt" class="nav-link {{ 'active' if pathname=='report-frt' else '' }}">
 					<span>Report an FRT System</span>
 				</a>
-				<a href="/sign-the-petition" class="nav-link {{ 'active' if pathname=='sign-the-petition' }}">
+				<a href="/sign-the-petition" class="nav-link {{ 'active' if pathname=='sign-the-petition' else '' }}">
 					<span>Sign the Petition</span>
 				</a>
-				<a href="/column" class="nav-link {{ 'active' if pathname=='column' }}">
+				<a href="/column" class="nav-link {{ 'active' if pathname=='column' else '' }}">
 					<span>Panoptic Column</span>
 				</a>
-				<a href="/right-to-information" class="nav-link {{ 'active' if pathname=='right-to-information' }}">
+				<a href="/right-to-information" class="nav-link {{ 'active' if pathname=='right-to-information' else '' }}">
 					<span>RTIs</span>
 				</a>
-				<a href="/research" class="nav-link {{ 'active' if pathname=='research' }}">
+				<a href="/research" class="nav-link {{ 'active' if pathname=='research' else '' }}">
 					<span>Research</span>
 				</a>
-				<a href="/about" class="nav-link {{ 'active' if pathname=='about' }}">
+				<a href="/about" class="nav-link {{ 'active' if pathname=='about' else '' }}">
 					<span>About</span>
 				</a>
-				<a href="/donate" class="nav-link {{ 'active' if pathname=='donate' }}">
+				<a href="/donate" class="nav-link {{ 'active' if pathname=='donate' else '' }}">
 					<span>Donate</span>
 				</a>
 			</div>
@@ -44,25 +45,25 @@
 		</div>
 	</div>
 	<div class="hidden lg:hidden flex flex-col border-t p-5" id="mobile-menu">
-		<a href="/" class="nav-link px-0 {{ 'active' if pathname=='index' }}">
+		<a href="/" class="nav-link px-0 {{ 'active' if pathname=='index' else '' }}">
 			<span>Tracker</span>
 		</a>
-		<a href="/report-frt" class="nav-link px-0 {{ 'active' if pathname=='report-frt' }}">
+		<a href="/report-frt" class="nav-link px-0 {{ 'active' if pathname=='report-frt' else '' }}">
 			<span>Report an FRT System</span>
 		</a>
-		<a href="/sign-the-petition" class="nav-link px-0 {{ 'active' if pathname=='sign-the-petition' }}">
+		<a href="/sign-the-petition" class="nav-link px-0 {{ 'active' if pathname=='sign-the-petition' else '' }}">
 			<span>Sign the Petition</span>
 		</a>
-		<a href="/column" class="nav-link px-0 {{ 'active' if pathname=='column' }}">
+		<a href="/column" class="nav-link px-0 {{ 'active' if pathname=='column' else '' }}">
 			<span>Panoptic Column</span>
 		</a>
-		<a href="/right-to-information" class="nav-link px-0 {{ 'active' if pathname=='right-to-information' }}">
+		<a href="/right-to-information" class="nav-link px-0 {{ 'active' if pathname=='right-to-information' else '' }}">
 			<span>RTIs</span>
 		</a>
-		<a href="/research" class="nav-link px-0 {{ 'active' if pathname=='research' }}">
+		<a href="/research" class="nav-link px-0 {{ 'active' if pathname=='research' else '' }}">
 			<span>Research</span>
 		</a>
-		<a href="/donate" class="nav-link px-0 {{ 'active' if pathname=='donate' }}">
+		<a href="/donate" class="nav-link px-0 {{ 'active' if pathname=='donate' else '' }}">
 			<span>Donate</span>
 		</a>
 	</div>
