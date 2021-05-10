@@ -1,10 +1,11 @@
 <nav class="items-center bg-teal-blue-500 flex-wrap border container">
 	<div class="flex justify-between">
-		<a href="/" class="w-1/5 flex items-center border-r py-5 px-5 md:px-8">
-			<img class="mr-0 md:mr-8 h-5 md:h-12" src="/assets/panoptic/images/panoptic.svg">
+		<a href="/" class="w-full md:w-1/5 flex items-center border-r py-5 px-5 md:px-8">
+			<img class="mr-3 md:mr-8 h-8 md:h-12" src="/assets/panoptic/images/panoptic.svg">
+			<div class="lg:hidden">Panoptic Tracker</div>
 			<div class="hidden lg:block">Panoptic<br>Tracker</div>
 		</a>
-		<div class="top-navbar w-4/5 justify-end flex text-orange-500 font-medium px-5" id="navigation">
+		<div class="top-navbar md:w-4/5 justify-end flex text-orange-500 font-medium px-5" id="navigation">
 			<div class="hidden lg:flex flex-row self-center items-start">
 				<a href="/" class="nav-link {{ 'active' if pathname=='index' else '' }}">
 					<span>Tracker</span>
