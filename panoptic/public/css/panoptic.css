@@ -1556,6 +1556,10 @@ h3 {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-white {
   --text-opacity: 1;
   color: #FFFFFF;
