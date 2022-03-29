@@ -1,0 +1,1 @@
+execute:frappe.delete_doc_if_exists("Web Form", "sign-the-petition-to-support-a-ban-on-facial-recognition-technology-use-by-law-enforcement-agencies", force=1)
