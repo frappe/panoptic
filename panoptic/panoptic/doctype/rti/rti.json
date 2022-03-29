@@ -109,9 +109,8 @@
   }
  ],
  "has_web_view": 1,
- "is_published_field": "route",
  "links": [],
- "modified": "2022-03-25 11:33:14.254868",
+ "modified": "2022-03-26 11:33:14.254868",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "RTI",
