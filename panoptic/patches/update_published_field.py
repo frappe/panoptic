@@ -4,14 +4,9 @@ import frappe
 
 def execute():
 	# patch to update published field
-	for rti in frappe.get_all("RTI", pluck="name"):
-		frappe.reload_doctype('RTI')
-		doc = frappe.get_doc("RTI", rti)
-		
-		if doc.status != "Draft":
-			doc.published = True
-		else:
-			doc.published = False
+	frappe.reload_doctype('RTI')
+	
+	for rti in frappe.get_all("RTI", fields=["name", "status"]):
+		frappe.db.set_value("RTI", rti.get('name'), "published", int(rti.status != "Draft"))
 
-		doc.save()
 	
