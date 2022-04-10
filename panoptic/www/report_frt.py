@@ -17,7 +17,6 @@ def get_context(context):
 		context.submitted = True
 
 	if frappe.form_dict.full_name:
-		frappe.form_dict["doctype"] = "Petition"
 		doc = frappe.get_doc({
 			"doctype": "Report FRT",
 			"full_name": frappe.form_dict.full_name,

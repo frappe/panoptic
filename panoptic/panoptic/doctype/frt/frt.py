@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.naming import make_autoname
 from frappe.website.website_generator import WebsiteGenerator
+from panoptic.utils import shorten_number
 
 class FRT(WebsiteGenerator):
 	def autoname(self):
@@ -28,6 +29,8 @@ class FRT(WebsiteGenerator):
 		context.case_studies = self.get_linked_case_studies()
 		context.rti_list = self.get_all_rtis()
 
+		context.shortened_amount = shorten_number(self.amount_spent) if self.amount_spent else ''
+
 		context.child_frts = []
 		context.parent = None
 
@@ -38,6 +41,7 @@ class FRT(WebsiteGenerator):
 			context.parent = frappe.get_doc("FRT", self.parent_frt)
 
 		context.subtitle = "{0}, Last updated on {1}".format(self.name, frappe.utils.format_date(self.modified))
+		
 		if self.tender_publish_date:
 			tender = frappe.utils.format_date(self.tender_publish_date)
 			mod = frappe.utils.format_date(self.modified)
