@@ -11,7 +11,8 @@
  "field_order": [
   "state_name",
   "state_id",
-  "route"
+  "route",
+  "published"
  ],
  "fields": [
   {
@@ -29,10 +30,20 @@
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route"
+  },
+  {
+   "default": "1",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Published",
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "published",
  "links": [
   {
    "group": "FRT",
@@ -45,10 +56,11 @@
    "link_fieldname": "state"
   }
  ],
- "modified": "2020-10-25 16:56:42.952075",
+ "modified": "2022-04-10 17:28:29.061386",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "State",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -67,5 +79,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
