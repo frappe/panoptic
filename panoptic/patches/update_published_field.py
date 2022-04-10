@@ -9,4 +9,6 @@ def execute():
 	for rti in frappe.get_all("RTI", fields=["name", "status"]):
 		frappe.db.set_value("RTI", rti.get('name'), "published", int(rti.status != "Draft"))
 
+	for state in frappe.get_all("State", pluck="name"):
+		frappe.db.set_value("State", state, "published", 1)
 	
