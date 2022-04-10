@@ -5,6 +5,7 @@ import frappe
 def execute():
 	# patch to update published field
 	frappe.reload_doctype('RTI')
+	frappe.reload_doctype('State')
 	
 	for rti in frappe.get_all("RTI", fields=["name", "status"]):
 		frappe.db.set_value("RTI", rti.get('name'), "published", int(rti.status != "Draft"))
