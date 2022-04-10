@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "published",
   "rti_filed_by",
   "route",
   "authority",
@@ -106,14 +107,26 @@
    "fieldname": "response_received_on",
    "fieldtype": "Date",
    "label": "Response Received On"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Published",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   }
  ],
  "has_web_view": 1,
+ "is_published_field": "published",
  "links": [],
- "modified": "2022-03-26 11:33:14.254868",
+ "modified": "2022-04-10 16:43:47.480612",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "RTI",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -132,6 +145,7 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "title_field": "title",
  "track_changes": 1
 }

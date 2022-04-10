@@ -15,6 +15,12 @@ class RTI(WebsiteGenerator):
 	def make_route(self):
 		return 'right-to-information/' + self.name
 
+	def on_update(self):
+		if self.status == "Draft":
+			self.published = 0
+		else:
+			self.published = 1
+
 	def get_context(self, context):
 		context.metatags = {
 			"name": "RTI: {0}".format(self.title),
