@@ -9,6 +9,10 @@
 	<article class="text-white border-r w-full">
 		<div class="prose prose-md text-center mx-auto py-5 md:py-8 lg:py-12">
 			<h1>{{ title }}</h1>
+			<p class="text-teal-blue-500">
+				Published on {{ frappe.format_date(published_date) }}
+				<span class="text-orange-500">—</span> {{ published_by }}
+			</p>
 		</div>
 		<div class="border-t border-b h-96 overflow-hidden">
 			<img src="{{ cover_image }}" style="filter: grayscale(1); object-fit: cover;">
