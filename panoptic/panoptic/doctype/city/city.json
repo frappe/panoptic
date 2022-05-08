@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "field:for_city",
+ "autoname": "CITY-{#####}",
  "creation": "2022-04-26 11:17:19.241868",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,8 +8,9 @@
  "field_order": [
   "title",
   "subtitle",
-  "description",
   "for_city",
+  "description",
+  "state",
   "column_break_3",
   "published",
   "published_date",
@@ -89,17 +90,23 @@
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
    "label": "Cover Image"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2022-05-02 11:18:30.208566",
+ "modified": "2022-05-08 14:36:24.587571",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "City",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -118,5 +125,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "for_city",
  "track_changes": 1
 }
