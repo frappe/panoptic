@@ -5,31 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<section class="container border-b border-r border-l">
-	<article class="text-white border-r w-full">
-		<div class="prose prose-md text-center mx-auto py-5 md:py-8 lg:py-12">
+<section class="container border-b border-l border-r">
+	<article class="w-full text-white border-r">
+		<div class="py-5 mx-auto prose text-center prose-md md:py-8 lg:py-12">
 			<h1>{{ title }}</h1>
 			<p class="text-teal-blue-500">
 				Published on {{ frappe.format_date(published_date) }}
 				<span class="text-orange-500">—</span> {{ published_by }}
 			</p>
 		</div>
-		<div class="border-t border-b h-96 overflow-hidden">
+		{% if cover_image %}
+		<div class="overflow-hidden border-t border-b h-96">
 			<img src="{{ cover_image }}" style="filter: grayscale(1); object-fit: cover;">
 		</div>
-		<div class="prose prose-md mx-auto py-5 md:py-8 lg:py-12">
+		{% endif %}
+		<div class="py-5 mx-auto prose prose-md md:py-8 lg:py-12">
 			{{ frappe.utils.md_to_html(content) }}
 		</div>
 	</article>
-	<section class="border-t gap-5 md:gap-8 lg:gap-12 py-5 md:py-8 lg:py-12">
-		<div class="prose prose-md mx-auto">
+	<section class="gap-5 py-5 border-t md:gap-8 lg:gap-12 md:py-8 lg:py-12">
+		<div class="mx-auto prose prose-md">
 			<h1 class="text-orange-500">
 				We will Watch the Watchmen
 			</h1>
 			{{ frappe.utils.md_to_html(settings.donate_pitch) }}
 		</div>
 		<div class="max-w-xl mx-auto">
-			<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-orange-500 text-white" target="_blank"
+			<a class="inline-block px-5 py-3 mt-6 text-center text-white bg-orange-500 rounded-sm" target="_blank"
 				rel="noopener noreferrer" href="https://internetfreedom.in/donate">Donate
 				Now</a>
 			<div class="mt-4 text-teal-blue-300">
@@ -50,5 +52,6 @@
 			height: 363px;
 		}
 	}
+
 </style>
 {% endblock %}
