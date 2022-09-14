@@ -15,7 +15,7 @@ class RTI(WebsiteGenerator):
 	def make_route(self):
 		return 'right-to-information/' + self.name
 
-	def on_update(self):
+	def before_validate(self):
 		if self.status == "Draft":
 			self.published = 0
 		else:
