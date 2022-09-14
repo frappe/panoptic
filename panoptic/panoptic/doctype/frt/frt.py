@@ -13,9 +13,6 @@ class FRT(WebsiteGenerator):
 		if not self.name:
 			self.name = make_autoname("FRT-.######")
 
-	def on_update(self):
-		self.route = self.make_route()
-
 	def make_route(self):
 		return frappe.get_value("State", self.state, 'route') + '/' + self.name
 
