@@ -16,6 +16,7 @@ home_page = "index"
 
 update_website_context = ["panoptic.panoptic.api.update_website_context"]
 
+after_migrate= ["panoptic.panoptic.search.build_index_for_all_routes"]
 # base_template = "templates/panoptic_base.html"
 
 # Includes in <head>
