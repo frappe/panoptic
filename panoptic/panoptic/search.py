@@ -37,9 +37,8 @@ class PanopticSearch(FullTextSearch):
 		frts = self.get_docs("FRT", self.get_all_frts())
 		blogs = self.get_docs("Blog", self.get_all_blogs())
 		rtis = self.get_docs("RTI", self.get_all_rtis())
-		cities = self.get_docs("City", self.get_all_cities())
 
-		return frts + blogs + rtis + cities
+		return frts + blogs + rtis
 
 	def get_all_frts(self):
 		return frappe.get_all("FRT", filters={ "published": 1 }, pluck="name")
@@ -49,9 +48,6 @@ class PanopticSearch(FullTextSearch):
 	
 	def get_all_rtis(self):
 		return frappe.get_all("RTI", filters=[["status", "!=", "Draft"]], pluck="name")
-	
-	def get_all_cities(self):
-		return frappe.get_all("City", filters={ "published": 1 }, pluck="name")
 
 	def get_docs(self, doctype, doc_list):
 		documents = []
