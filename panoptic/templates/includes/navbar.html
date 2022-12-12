@@ -147,6 +147,11 @@
 		resultHTML = ''
 
 		list = document.getElementById('panoptic-search-list')
+		if (term === '') {
+			list.classList.add("hidden")
+			return
+		}
+
 		list.classList.remove("hidden")
 		if (Object.keys(result).length) {
 			["FRT", "Right to Information", "City", "Case Study", "Update"].forEach(category => {
