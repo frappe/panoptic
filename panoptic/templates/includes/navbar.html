@@ -143,14 +143,15 @@
 	}
 
 	async function search(term) {
-		const result = await searchRequest(term)
-		resultHTML = ''
-
 		list = document.getElementById('panoptic-search-list')
 		if (term === '') {
 			list.classList.add("hidden")
 			return
 		}
+		
+		
+		const result = await searchRequest(term)
+		resultHTML = ''
 
 		list.classList.remove("hidden")
 		if (Object.keys(result).length) {
