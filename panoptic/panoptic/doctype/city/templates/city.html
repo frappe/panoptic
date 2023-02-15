@@ -20,7 +20,7 @@
 			<img src="{{ cover_image }}" style="filter: grayscale(1); object-fit: cover;">
 		</div>
 		{% endif %}
-		<div class="px-5 py-5 mx-auto prose prose-md md:py-8 lg:py-12 md:px-0">
+		<div class="px-5 py-5 mx-auto prose prose-md md:py-8 lg:py-12 md:px-0" style="max-width: 55rem;">
 			{{ frappe.utils.md_to_html(content) }}
 		</div>
 	</article>
@@ -50,8 +50,8 @@
 <style>
 	@media (min-width: 768px) {
 		iframe {
-			width: 647px;
-			height: 363px;
+			width: 840px;
+			height: 472px;
 		}
 	}
 
