@@ -8,6 +8,9 @@
   "youtube",
   "twitter",
   "instagram",
+  "column_break_4",
+  "enable_cities",
+  "section_break_6",
   "website_copy_section",
   "privacy_policy",
   "full_petition",
@@ -67,12 +70,28 @@
    "fieldname": "full_petition",
    "fieldtype": "Markdown Editor",
    "label": "Full Petition"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break",
+   "label": "Feature Flags"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_cities",
+   "fieldtype": "Check",
+   "label": "Enable Cities",
+   "options": "false"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-11-22 14:39:54.187985",
+ "modified": "2023-02-15 16:56:27.764816",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "Panoptic Settings",
@@ -92,5 +111,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
