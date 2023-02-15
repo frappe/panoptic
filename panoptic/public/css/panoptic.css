@@ -1683,6 +1683,17 @@ h3 {
   gap: 1.25rem;
 }
 
+.gap-8 {
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.gap-12 {
+  grid-gap: 3rem;
+  gap: 3rem;
+}
+
+
 .gap-y-12 {
   grid-row-gap: 3rem;
   row-gap: 3rem;
@@ -2034,6 +2045,16 @@ h3 {
     text-align: right;
   }
 
+  .md\:gap-8 {
+    grid-gap: 2rem;
+    gap: 2rem;
+  }
+  
+  .md\:gap-12 {
+    grid-gap: 3rem;
+    gap: 3rem;
+  }
+
   .md\:truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2080,6 +2101,16 @@ h3 {
 
   .lg\:p-12 {
     padding: 3rem;
+  }
+
+  .lg\:gap-8 {
+    grid-gap: 2rem;
+    gap: 2rem;
+  }
+  
+  .lg\:gap-12 {
+    grid-gap: 3rem;
+    gap: 3rem;
   }
 
   .lg\:py-12 {

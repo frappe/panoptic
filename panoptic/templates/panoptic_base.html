@@ -43,7 +43,7 @@
 	{% endblock %}
 
 	<!-- End of Meta Tags-->
-	<link href="/assets/panoptic/css/panoptic.css?ver=c82342ea8123242343s" rel="stylesheet">
+	<link href="/assets/panoptic/css/panoptic.css?ver=c82ea8123" rel="stylesheet">
 	<!-- <link href="/assets/panoptic/css/icon.css" rel="stylesheet"> -->
 	<link rel="canonical" href="{{ frappe.utils.get_url() }}" />
 
@@ -69,8 +69,8 @@
 
 <body class="bg-teal-blue-500 font-body"
 	frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}"
-	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown"
-	{% endif -%}>
+	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {% endif
+	-%}>
 	{% include "templates/includes/navbar.html" %}
 	{% block content %}
 	{{ content }}
@@ -79,7 +79,7 @@
 	<!-- csrf_token -->
 	{% block script %} {% endblock %}
 </body>
-	
+
 {%- for link in web_include_js %}
 <script type="text/javascript" src="{{ link | abs_url }}"></script>
 {%- endfor -%}

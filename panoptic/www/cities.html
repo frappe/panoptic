@@ -1,0 +1,33 @@
+{% extends "templates/panoptic_base.html" %}
+
+{% block title %}Panoptic - Cities{% endblock %}
+
+{% block meta_block %}
+{% include "templates/includes/meta_block.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="container border-b border-collapse">
+	{{ web_block(
+		"Title Section",
+		values={
+			"title": "Cities",
+		},
+		add_container=0,
+		add_top_padding=0,
+		add_bottom_padding=0,
+	) }}
+
+	<div class="flex flex-wrap border-r border-l">
+    {% for city in cities %}
+      {{ web_block(
+            "Article List Item",
+            values=city,
+            add_container=0,
+            add_top_padding=0,
+            add_bottom_padding=0,
+          ) }}
+    {% endfor %}
+	</div>
+</section>
+{% endblock %}
