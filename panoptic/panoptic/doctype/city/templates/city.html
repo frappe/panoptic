@@ -5,14 +5,46 @@
 {% endblock %}
 
 {% block content %}
-<section class="container border-b border-r border-l flex">
+<section class="container border-b border-r border-l">
 	<article class="text-white border-r w-full">
-		<div class="p-5 md:p-8 lg:p-12">
-			<div class="prose prose-md mx-auto">
-				<h1>{{ title }}</h1>
-				{{ frappe.utils.md_to_html(content) }}
-			</div>
+		<div class="prose prose-md text-center mx-auto py-5 md:py-8 lg:py-12">
+			<h1>{{ title }}</h1>
+		</div>
+		<div class="border-t border-b h-96 overflow-hidden">
+			<img src="{{ cover_image }}" style="filter: grayscale(1); object-fit: cover;">
+		</div>
+		<div class="prose prose-md mx-auto py-5 md:py-8 lg:py-12">
+			{{ frappe.utils.md_to_html(content) }}
 		</div>
 	</article>
+	<section class="border-t gap-5 md:gap-8 lg:gap-12 py-5 md:py-8 lg:py-12">
+		<div class="prose prose-md mx-auto">
+			<h1 class="text-orange-500">
+				We will Watch the Watchmen
+			</h1>
+			{{ frappe.utils.md_to_html(settings.donate_pitch) }}
+		</div>
+		<div class="max-w-xl mx-auto">
+			<a class="mt-6 inline-block text-center px-5 py-3 rounded-sm bg-orange-500 text-white" target="_blank"
+				rel="noopener noreferrer" href="https://internetfreedom.in/donate">Donate
+				Now</a>
+			<div class="mt-4 text-teal-blue-300">
+				Donated already? <a class="hover:underline" target="_blank" rel="noopener noreferrer"
+					href="https://twitter.com/intent/tweet?text=I%20just%20donated%20to%20%40internetfreedom%20for%20%23ProjectPanoptic%20and%20you%20should%20as%20well.%0ATogether%20we%20can%20fight%20the%20growing%20threat%20of%20mass%20surveillance.&url={{ site_url }}">Ask
+					your friends to donate as well.</a>
+			</div>
+		</div>
+	</section>
 </section>
+{% endblock %}
+
+{% block style %}
+<style>
+	@media (min-width: 768px) {
+		iframe {
+			width: 647px;
+			height: 363px;
+		}
+	}
+</style>
 {% endblock %}

@@ -1358,6 +1358,14 @@ h3 {
   height: 8rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
+.h-96 {
+  height: 32rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1487,6 +1495,10 @@ h3 {
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-xl {
+  max-width: 40rem;
 }
 
 .max-w-4xl {
@@ -1656,6 +1668,10 @@ h3 {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .w-32 {
