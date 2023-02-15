@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% if settings.enable_cities %}
 <section class="container border-b border-l border-r">
 	<article class="w-full text-white border-r">
 		<div class="py-5 mx-auto prose text-center prose-md md:py-8 lg:py-12">
@@ -41,6 +42,7 @@
 			</div>
 		</div>
 	</section>
+	{% endif %}
 </section>
 {% endblock %}
 

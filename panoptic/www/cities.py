@@ -8,7 +8,11 @@ def get_context(context):
 	}
 
 	context.no_cache = 1
-	context.cities = get_all_cities()
+	settings = frappe.get_doc("Panoptic Settings")
+	if settings.enable_cities:
+		context.cities = get_all_cities()
+	else:
+		context.city = []
 
 def get_all_cities():
 	fields = ['route', 'title', 'subtitle', 'published_by', 'published_date', 'description', 'cover_image']
