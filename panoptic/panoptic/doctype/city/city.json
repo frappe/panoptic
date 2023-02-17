@@ -10,6 +10,7 @@
   "subtitle",
   "description",
   "for_city",
+  "state",
   "column_break_3",
   "published",
   "published_date",
@@ -88,13 +89,19 @@
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
    "label": "Cover Image"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2023-02-17 13:02:09.028429",
+ "modified": "2023-02-17 13:31:48.563313",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "City",

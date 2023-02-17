@@ -24,7 +24,7 @@ class State(WebsiteGenerator):
 	def get_context(self, context):
 		context.no_cache = 1
 		context.frts = self.get_all_frts(filters={ "state": self.name })
-		# context.cities = self.get_all_cities(filters={ "state": self.name })
+		context.cities = self.get_all_cities(filters={ "state": self.name })
 
 		if self.name == "Central":
 			context.is_central = True
