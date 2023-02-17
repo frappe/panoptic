@@ -19,7 +19,4 @@ def get_all_cities():
 
 	cities = frappe.db.get_all("City", fields=fields, filters=[["published", "=", 1]], order_by="published_date desc")
 
-	for city in cities:
-		city.member_doc = frappe.get_doc("Team Member", city.published_by).as_dict()
-
 	return cities

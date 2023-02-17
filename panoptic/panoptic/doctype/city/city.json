@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "CITY-{#####}",
+ "autoname": "field:for_city",
  "creation": "2022-04-26 11:17:19.241868",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,9 +8,8 @@
  "field_order": [
   "title",
   "subtitle",
-  "for_city",
   "description",
-  "state",
+  "for_city",
   "column_break_3",
   "published",
   "published_date",
@@ -43,9 +42,8 @@
   },
   {
    "fieldname": "published_by",
-   "fieldtype": "Link",
-   "label": "Published By",
-   "options": "Team Member"
+   "fieldtype": "Data",
+   "label": "Published By"
   },
   {
    "fieldname": "route",
@@ -90,23 +88,17 @@
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
    "label": "Cover Image"
-  },
-  {
-   "fieldname": "state",
-   "fieldtype": "Link",
-   "label": "State",
-   "options": "State"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2022-05-08 14:36:24.587571",
+ "modified": "2023-02-17 13:02:09.028429",
  "modified_by": "Administrator",
  "module": "Panoptic",
  "name": "City",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -125,6 +117,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "for_city",
  "track_changes": 1
 }
