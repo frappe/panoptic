@@ -1,23 +1,24 @@
-<nav class="items-center bg-teal-blue-500 flex-wrap border container">
+<nav class="container flex-wrap items-center border bg-teal-blue-500">
 	<div class="flex justify-between">
-		<a href="/" class="w-full md:w-1/5 flex flex-shrink-0 items-center border-r py-5 px-5 md:px-8">
-			<img class="mr-3 md:mr-8 h-8 md:h-12" src="/assets/panoptic/images/panoptic.svg">
+		<a href="/" class="flex items-center flex-shrink-0 w-full px-5 py-5 border-r md:w-1/5 md:px-8">
+			<img class="h-8 mr-3 md:mr-8 md:h-12" src="/assets/panoptic/images/panoptic.svg">
 			<div class="lg:hidden">Panoptic Tracker</div>
 			<div class="hidden lg:block">Panoptic<br>Tracker</div>
 		</a>
-		<div class="top-navbar md:w-4/5 justify-end flex text-orange-500 font-medium px-5" id="navigation">
-			<div class="hidden lg:flex flex-row self-center items-start">
-				<a href="/report-frt" class="nav-link {{ 'active' if pathname=='report-frt' else '' }}">
-					<span>Report an FRT</span>
-				</a>
+		<div class="flex justify-end px-5 font-medium text-orange-500 top-navbar md:w-4/5" id="navigation">
+			<div class="flex-row items-start self-center hidden lg:flex">
 				<a href="/sign-the-petition" class="nav-link {{ 'active' if pathname=='sign-the-petition' else '' }}">
 					<span>Petition</span>
 				</a>
+				{% if settings.enable_cities %}
+				<a href="/cities" class="nav-link {{ 'active' if pathname=='sign-the-petition' else '' }}">
+					<span>Cities</span>
+				</a>
+				{% endif %}
 				<a href="/column" class="nav-link {{ 'active' if pathname=='column' else '' }}">
 					<span>Column</span>
 				</a>
-				<a href="/right-to-information"
-					class="nav-link {{ 'active' if pathname=='right-to-information' else '' }}">
+				<a href="/right-to-information" class="nav-link {{ 'active' if pathname=='right-to-information' else '' }}">
 					<span>RTIs</span>
 				</a>
 				<a href="/research" class="nav-link {{ 'active' if pathname=='research' else '' }}">
@@ -28,25 +29,25 @@
 				</a>
 				<div class="w-full search-wrapper">
 					<input name="search" id="panoptic-search-input"
-						class="form-input bg-teal-blue-700 border-none text-teal-blue-200 mt-1 block w-full"
+						class="block w-full mt-1 border-none form-input bg-teal-blue-700 text-teal-blue-200"
 						placeholder="Search for articles and reports">
-					<div class="hidden search-list bg-teal-blue-700 rounded" id="panoptic-search-list">
+					<div class="hidden rounded search-list bg-teal-blue-700" id="panoptic-search-list">
 					</div>
 				</div>
 			</div>
-			<div class="lg:hidden flex items-center p-2" onclick="toggleMenu()">
-				<svg id="menu-open" xmlns="http://www.w3.org/2000/svg" fill="none" class="h-8 w-8" viewBox="0 0 24 24"
+			<div class="flex items-center p-2 lg:hidden" onclick="toggleMenu()">
+				<svg id="menu-open" xmlns="http://www.w3.org/2000/svg" fill="none" class="w-8 h-8" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 				</svg>
-				<svg id="menu-close" xmlns="http://www.w3.org/2000/svg" fill="none" class="h-8 w-8 hidden"
-					viewBox="0 0 24 24" stroke="currentColor">
+				<svg id="menu-close" xmlns="http://www.w3.org/2000/svg" fill="none" class="hidden w-8 h-8" viewBox="0 0 24 24"
+					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 				</svg>
 			</div>
 		</div>
 	</div>
-	<div class="hidden lg:hidden flex flex-col border-t p-5" id="mobile-menu">
+	<div class="flex flex-col hidden p-5 border-t lg:hidden" id="mobile-menu">
 		<a href="/" class="nav-link px-0 {{ 'active' if pathname=='index' else '' }}">
 			<span>Tracker</span>
 		</a>
@@ -59,8 +60,7 @@
 		<a href="/column" class="nav-link px-0 {{ 'active' if pathname=='column' else '' }}">
 			<span>Panoptic Column</span>
 		</a>
-		<a href="/right-to-information"
-			class="nav-link px-0 {{ 'active' if pathname=='right-to-information' else '' }}">
+		<a href="/right-to-information" class="nav-link px-0 {{ 'active' if pathname=='right-to-information' else '' }}">
 			<span>RTIs</span>
 		</a>
 		<a href="/research" class="nav-link px-0 {{ 'active' if pathname=='research' else '' }}">
@@ -92,7 +92,7 @@
 	}
 
 	async function searchRequest(query = "") {
-		const headers = {"Content-Type": "application/json", "X-Frappe-CSRF-Token": frappe.csrf_token};
+		const headers = { "Content-Type": "application/json", "X-Frappe-CSRF-Token": frappe.csrf_token };
 
 		const config = {
 			method: "POST",
@@ -135,7 +135,7 @@
 
 		return `
 			<div>
-				<div class="px-2 py-1 font-semibold text-sm uppercase tracking-wider">${category}</div>
+				<div class="px-2 py-1 text-sm font-semibold tracking-wider uppercase">${category}</div>
 				${resultListHTML.join(" ")}
 			</div>
 		`
@@ -148,8 +148,8 @@
 			list.classList.add("hidden")
 			return
 		}
-		
-		
+
+
 		const result = await searchRequest(term)
 		resultHTML = ''
 
@@ -164,7 +164,7 @@
 			list.innerHTML = resultHTML
 		} else {
 			list.innerHTML = `
-				<div class="no-result-found text-teal-blue-300 w-full text-center">No results found</div>
+				<div class="w-full text-center no-result-found text-teal-blue-300">No results found</div>
 			`
 		}
 
@@ -207,4 +207,5 @@
 		overflow: scroll;
 		box-shadow: var(--shadow-elevation-low);
 	}
+
 </style>

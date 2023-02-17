@@ -1,7 +1,7 @@
 {% if route and route.startswith('http') %}
-<a href="{{ route }}" target="_blank" rel="noopener noreferrer" class="w-full p-5 md:p-8 lg:p-12 border-b">
+<a href="{{ route }}" target="_blank" rel="noopener noreferrer" class="w-full border-b p-5 md:p-8 lg:p-12 flex">
 {% else %}
-<a href="/{{ route }}" class="w-full p-5 md:p-8 lg:p-12 border-b">
+<a href="/{{ route }}" class="w-full border-b p-5 md:p-8 lg:p-12 flex">
 {% endif %}
 	<div class="md:w-2/3">
 		{% if category %}

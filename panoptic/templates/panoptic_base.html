@@ -17,6 +17,8 @@
 	<meta itemprop="name" content="Project panoptic">
 	<meta itemprop="description" content="Keeping Facial Recognition Technology in Check">
 
+	{% block style %} {% endblock %}
+
 	{% block meta_block %}
 	<!-- Twitter Card data -->
 	<meta name="title" content="Project Panoptic">
@@ -43,7 +45,7 @@
 	{% endblock %}
 
 	<!-- End of Meta Tags-->
-	<link href="/assets/panoptic/css/panoptic.css?ver=c82342ea8123242343s" rel="stylesheet">
+	<link href="/assets/panoptic/css/panoptic.css?ver=c82342ea8123s" rel="stylesheet">
 	<!-- <link href="/assets/panoptic/css/icon.css" rel="stylesheet"> -->
 	<link rel="canonical" href="{{ frappe.utils.get_url() }}" />
 
@@ -62,15 +64,15 @@
 		frappe.ready = function (fn) {
 			frappe.ready_events.push(fn);
 		}
-		window.dev_server = {{ dev_server }};
-		window.socketio_port = {{ frappe.socketio_port }};
+		window.dev_server = {{dev_server}};
+		window.socketio_port = {{frappe.socketio_port}};
 	</script>
 </head>
 
 <body class="bg-teal-blue-500 font-body"
 	frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}"
-	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown"
-	{% endif -%}>
+	data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {% endif
+	-%}>
 	{% include "templates/includes/navbar.html" %}
 	{% block content %}
 	{{ content }}
@@ -79,7 +81,7 @@
 	<!-- csrf_token -->
 	{% block script %} {% endblock %}
 </body>
-	
+
 {%- for link in web_include_js %}
 <script type="text/javascript" src="{{ link | abs_url }}"></script>
 {%- endfor -%}
